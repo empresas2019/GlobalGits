@@ -3,16 +3,7 @@
 
 var client = (function () {
 
-    function goToPage(nombre){
-        var temp=nombre;        
-        pagina="inventario.html";
-        pagina+="?";
-        nomVec=temp.split(",");
-        pagina+="="+temp;
-        location.href=pagina;
-        
-        
-    }
+
     function sendName() {
         var temp = $("#name").val();
         alert(temp);
@@ -24,16 +15,15 @@ var client = (function () {
         }
         axios.post('/cliente/add/' + temp2)
                 .then(function (response) {
-                    console.log(response.data);                        
-                    goToPage(temp);
+                    console.log(response.data);
+
                 })
                 .catch(error => {
                     console.log(error.response)
                 });
     }
     return{
-        sendName: sendName,
-        goToPage:goToPage
+        sendName: sendName
 
 
 

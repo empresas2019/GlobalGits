@@ -32,7 +32,8 @@ public interface TiendaServices {
     
     //public Cliente CreateClient(String nombre, Integer identificacion);
     public void CreateClient(String nombre);
-    public Cliente getClient();
+    public Cliente getClient(Integer id);
+    public List<Cliente> getAllClient();
     public void changeCliente(String nombre, Integer identificacion,List<Producto> HistorialCompras,List<Producto> CarritoCompras);
     public void eraseClient(Integer identificacion);
     

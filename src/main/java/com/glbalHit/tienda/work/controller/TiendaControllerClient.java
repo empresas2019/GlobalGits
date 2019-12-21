@@ -38,7 +38,7 @@ public class TiendaControllerClient {
     
     @GetMapping("/all")
     public ResponseEntity<?> getAllClient(){        
-        return new ResponseEntity<>(td.getClient(), HttpStatus.ACCEPTED);
+        return new ResponseEntity<>(td.getAllClient(), HttpStatus.ACCEPTED);
     
     }
     
