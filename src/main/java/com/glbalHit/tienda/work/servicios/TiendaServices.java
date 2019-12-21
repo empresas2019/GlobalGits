@@ -1,0 +1,50 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.glbalHit.tienda.work.servicios;
+
+import com.glbalHit.tienda.work.model.Cliente;
+import com.glbalHit.tienda.work.model.Producto;
+import com.glbalHit.tienda.work.model.Tienda;
+import java.util.List;
+
+/**
+ *
+ * @author Cefar -- Dicomatico
+ */
+public interface TiendaServices {
+    
+    public Tienda CreateTienda();
+    
+    public Producto CreateProduct(String nombre, String descripcion,Integer precio, Integer id);
+    public Producto getProduct();
+    public void changeProduct(String nombre, String descripcion,Integer precio, Integer id);
+    public void EraseProduct( Integer id);
+    public Integer getSiceProduct();
+    
+    
+    
+    
+    //public Cliente CreateClient(String nombre, Integer identificacion);
+    public void CreateClient(String nombre);
+    public Cliente getClient();
+    public void changeCliente(String nombre, Integer identificacion,List<Producto> HistorialCompras,List<Producto> CarritoCompras);
+    public void eraseClient(Integer identificacion);
+    
+    
+    public String GeneratorReporter(String fechaIn,String fechaFin);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+}
