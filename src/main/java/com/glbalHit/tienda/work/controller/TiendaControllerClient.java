@@ -31,7 +31,10 @@ public class TiendaControllerClient {
     @Autowired
     private TiendaServices td;
     
-    
+    /**
+     * Este metodo retorna todos los clientes que esten almacenados en la herramienta
+     * @return List<Cliente> Retorna una lista con todos los clientes presentes en la herramienta.
+     */
     
     @GetMapping("/all")
     public ResponseEntity<?> getAllClient(){        
@@ -39,19 +42,34 @@ public class TiendaControllerClient {
     
     }
     
-    
+    /**
+     * @param nombre Es el atributo para adicionar un nuevo cliente a la herramienta.
+     * @return ResponseEntity<?> Retorna un objeto de tipo de ResponseEntity.
+     * @throws TiendaException 
+     */
     @RequestMapping(method=RequestMethod.POST, path ="/add/{nombre}")
     public ResponseEntity<?> addClient(@PathVariable String nombre)throws TiendaException{
         td.CreateClient(nombre);  
         return new ResponseEntity<>(null, HttpStatus.ACCEPTED);
     }    
     
+    /**
+     * @param nombre  Es el parametro para modificar el valor del cliente.
+     * @param identificacion Es el parametro para poder identificar el cliente a modificar.
+     * @param HistorialCompras Es el parametro para listar todas las compras que ha realizado en una fecha determinada
+     * @param CarritoCompras Es el parametro para listar todos los productos que el cliente va a querer comprar.
+     * @throws TiendaException 
+     */
+    
     @RequestMapping(method=RequestMethod.POST, path ="/change/{nombre}/{identificacion}/{HistorialCompras}/{CarritoCompras}")
     public void ChangeClient(@PathVariable String nombre,@PathVariable Integer identificacion, @PathVariable List<Producto> HistorialCompras,@PathVariable List<Producto> CarritoCompras)throws TiendaException{
         td.changeCliente(nombre, identificacion, HistorialCompras, CarritoCompras);
 
     }
-    
+    /**
+     * @param id Es el parametro para identidicar el producto a borrar.
+     * @throws TiendaException 
+     */
     @RequestMapping(method=RequestMethod.POST, path ="/eraser/{identificacion}")
     public void EraseClient( @PathVariable Integer id)throws TiendaException{
         td.eraseClient(id);

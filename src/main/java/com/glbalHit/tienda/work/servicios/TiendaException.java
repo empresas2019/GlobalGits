@@ -11,11 +11,20 @@ package com.glbalHit.tienda.work.servicios;
  */
 public class TiendaException  extends Exception {
     
-    
+    /**
+     * 
+     * @param message
+     * @param cause 
+     */
     public TiendaException (String message, Throwable cause){
         super(message,cause);      
     }
-            
+       
+    /**
+     * 
+     * @param message 
+     */
+    
     public TiendaException(String message){
         super(message);
     }

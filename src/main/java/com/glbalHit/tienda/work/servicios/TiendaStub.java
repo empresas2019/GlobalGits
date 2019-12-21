@@ -28,16 +28,33 @@ public class TiendaStub implements TiendaServices {
     private Cliente cl;
     private static Tienda mi;
 
+    /**
+     * 
+     */
+    
     public TiendaStub() {
 
     }
 
+    /**
+     * 
+     * @param nombre
+     * @param descripcion
+     * @param precio
+     * @param id 
+     */
     @Override
     public void CreateProduct(String nombre, String descripcion, Integer precio, Integer id) {
         productos.add(new Producto(nombre,descripcion,precio,productos.size()+1));
         
     }
 
+    /**
+     * 
+     * @param id
+     * @return 
+     */
+    
     @Override
     public Producto getProduct(Integer id) {
         Producto pro=new Producto();
@@ -49,6 +66,14 @@ public class TiendaStub implements TiendaServices {
         return pro;
     }
 
+    /**
+     * 
+     * @param nombre
+     * @param descripcion
+     * @param precio
+     * @param id 
+     */
+    
     @Override
     public void changeProduct(String nombre, String descripcion, Integer precio, Integer id) {
         for(Producto pr: productos){
@@ -60,6 +85,11 @@ public class TiendaStub implements TiendaServices {
         }
     }
 
+    /**
+     * 
+     * @param id 
+     */
+    
     @Override
     public void EraseProduct(Integer id) {
         for(int i=0; i<productos.size() ; i++){
@@ -71,6 +101,11 @@ public class TiendaStub implements TiendaServices {
         }        
     }
 
+    /**
+     * 
+     * @param nombre 
+     */
+    
     @Override
     public void CreateClient(String nombre) {
         System.out.println("Si LLEegamos");
@@ -79,11 +114,23 @@ public class TiendaStub implements TiendaServices {
 
     }
 
+    /**
+     * 
+     * @return 
+     */
     @Override
     public Cliente getClient() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    /**
+     * 
+     * @param nombre
+     * @param identificacion
+     * @param HistorialCompras
+     * @param CarritoCompras 
+     */
+    
     @Override
     public void changeCliente(String nombre, Integer identificacion, List<Producto> HistorialCompras, List<Producto> CarritoCompras) {
         for (Cliente to : Clientes) {
@@ -95,16 +142,30 @@ public class TiendaStub implements TiendaServices {
         }
     }
 
+    /**
+     * 
+     * @param identificacion 
+     */
+    
     @Override
     public void eraseClient(Integer identificacion) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
+/**
+ * 
+ * @param fechaIn
+ * @param fechaFin
+ * @return 
+ */
+    
     @Override
     public String GeneratorReporter(String fechaIn, String fechaFin) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
+    /**
+     * 
+     * @return 
+     */
     @Override
     public Integer getSiceProduct() {
         return productos.size();
