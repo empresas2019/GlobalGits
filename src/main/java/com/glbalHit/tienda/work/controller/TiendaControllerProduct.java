@@ -30,9 +30,10 @@ public class TiendaControllerProduct {
     @Autowired
     private TiendaServices td;
     
+    
     @GetMapping("/all")
     public ResponseEntity<?> getAllProduct(){        
-        return new ResponseEntity<>(td.getProduct(), HttpStatus.ACCEPTED);
+        return new ResponseEntity<>(td.getAllProduct(), HttpStatus.ACCEPTED);
     
     }
     

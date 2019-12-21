@@ -19,51 +19,64 @@ import org.springframework.stereotype.Service;
  * @author Cefar -- Dicomatico
  */
 @Service
-public class TiendaStub implements TiendaServices{
+public class TiendaStub implements TiendaServices {
 
-    private List<Cliente> Clientes=new ArrayList<Cliente>();
-    
-    private List<Producto> productos=new ArrayList<Producto>();
-    
+    private List<Cliente> Clientes = new ArrayList<Cliente>();
+
+    private List<Producto> productos = new ArrayList<Producto>();
+
     private Cliente cl;
-    
-    public TiendaStub(){
+    private static Tienda mi;
+
+    public TiendaStub() {
+
+    }
+
+    @Override
+    public void CreateProduct(String nombre, String descripcion, Integer precio, Integer id) {
+        productos.add(new Producto(nombre,descripcion,precio,productos.size()+1));
         
-    
-    
-    }
-            
-    @Override
-    public Tienda CreateTienda() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Producto CreateProduct(String nombre, String descripcion, Integer precio, Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Producto getProduct() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Producto getProduct(Integer id) {
+        Producto pro=new Producto();
+        for(Producto pr: productos){
+            if(pr.getId()==id){
+                pro=pr;            
+            }
+        }       
+        return pro;
     }
 
     @Override
     public void changeProduct(String nombre, String descripcion, Integer precio, Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        for(Producto pr: productos){
+            if(pr.getId()==id){
+                pr.setDescripcion(descripcion);
+                pr.setNombre(nombre);
+                pr.setPrecio(precio);
+            }
+        }
     }
 
     @Override
     public void EraseProduct(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        for(int i=0; i<productos.size() ; i++){
+            Producto temp=productos.get(i);
+            int te=i;
+            if(temp.getId()==id){
+                productos.remove(i);            
+            }        
+        }        
     }
 
     @Override
     public void CreateClient(String nombre) {
         System.out.println("Si LLEegamos");
-        cl= new Cliente(nombre,Clientes.size()+1);
+        cl = new Cliente(nombre, Clientes.size() + 1);
         Clientes.add(cl);
-        
+
     }
 
     @Override
@@ -73,31 +86,18 @@ public class TiendaStub implements TiendaServices{
 
     @Override
     public void changeCliente(String nombre, Integer identificacion, List<Producto> HistorialCompras, List<Producto> CarritoCompras) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        for (Cliente to : Clientes) {
+            if (to.getIdentificacion() == identificacion) {
+                to.setCarritoCompras(CarritoCompras);
+                to.setHistorialCompras(HistorialCompras);
+                to.setNombre(nombre);                
+            }            
+        }
     }
 
     @Override
     public void eraseClient(Integer identificacion) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-    static {
-        Tienda mi=Tienda.getTienda("nombre");
-        
-        /**
-        
-        try{
-            
-        
-        }catch (TiendaException ex){
-            Logger.getLogger(TiendaStub.class.getName()).log(Level.SEVERE, null, ex);
-            
-        }
-        */
-    
-    
-    
-    
     }
 
     @Override
@@ -109,5 +109,15 @@ public class TiendaStub implements TiendaServices{
     public Integer getSiceProduct() {
         return productos.size();
     }
-    
+
+    static {
+        mi = TiendaServices.CreateTienda("Mi Iingrersos Hits");
+
+    }
+
+    @Override
+    public List<Producto> getAllProduct() {
+        return productos;
+    }
+
 }

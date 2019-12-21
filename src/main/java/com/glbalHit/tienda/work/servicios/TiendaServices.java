@@ -16,10 +16,13 @@ import java.util.List;
  */
 public interface TiendaServices {
     
-    public Tienda CreateTienda();
+    public static Tienda CreateTienda(String nombre){
+        return Tienda.getTienda(nombre);
+    }
     
-    public Producto CreateProduct(String nombre, String descripcion,Integer precio, Integer id);
-    public Producto getProduct();
+    public void CreateProduct(String nombre, String descripcion,Integer precio, Integer id);
+    public Producto getProduct(Integer id);
+    public List<Producto> getAllProduct();
     public void changeProduct(String nombre, String descripcion,Integer precio, Integer id);
     public void EraseProduct( Integer id);
     public Integer getSiceProduct();

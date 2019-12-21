@@ -31,6 +31,8 @@ public class TiendaControllerClient {
     @Autowired
     private TiendaServices td;
     
+    
+    
     @GetMapping("/all")
     public ResponseEntity<?> getAllClient(){        
         return new ResponseEntity<>(td.getClient(), HttpStatus.ACCEPTED);
