@@ -31,7 +31,6 @@ var reporte = (function () {
         document.getElementById("carcom").innerHTML = carroc;
     }
 
-
     function getAllVen() {
         axios.get('/venta/all')
                 .then(function (response) {
@@ -42,7 +41,6 @@ var reporte = (function () {
                 .catch(error => {
                     console.log(error.response)
                 });
-
     }
 
     function paintBus() {
@@ -50,7 +48,6 @@ var reporte = (function () {
         clienn += "<br><br>";
         clienn += "<p class=lead> Entre esta fecha : .</p>";
         clienn += "<select  id=se name=sef class=selectpicker> ";
-
         var q;
         for (q = 0; q < fechas.length; q++) {
             clienn += "<option value=" + fechas[q] + ">" + fechas[q] + "</option>";
@@ -67,7 +64,6 @@ var reporte = (function () {
         clienn += "<a  onclick=reporte.getAllVen() class=btn btn-primary btn-lg>Buscar</a>";
         document.getElementById("bu").innerHTML = clienn;
     }
-
 
     return{
         busc: busc,

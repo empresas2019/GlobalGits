@@ -1,6 +1,4 @@
 
-
-
 var ProdCrud = (function () {
     var n = -1;
     var nombre = "";
@@ -27,13 +25,10 @@ var ProdCrud = (function () {
         var temp1 = $("#descr").val();
         var e = temp1.replace(" ", "-");
         var prue = document.getElementById("descr").value;
-        alert(e.length);
         var ee = "";
         var q;
         for (q = 0; q < e.length; q++) {
-
             if (e[q] != " ") {
-                alert(e[q]);
                 ee += e[q];
             }
         }
@@ -55,9 +50,7 @@ var ProdCrud = (function () {
                 .then(function (response) {
                     console.log(response.data);
                     pro = response.data;
-                    alert(pro);
                     if (pro.nombre != null) {
-                        alert(n);
                         nombre = pro.nombre;
                         id = pro.id;
                         descripcion = pro.descripcion;
@@ -67,7 +60,7 @@ var ProdCrud = (function () {
                         } else if (n == 1) {
                             eraserPaint2(pro);
                         } else {
-                            alert("nada");
+                            confirm("Ocurrio un error, vuelva a intentar");
                         }
                     } else {
                         confirm("No se encontro un cliente con esa identificacion, vuelve a intentar.");

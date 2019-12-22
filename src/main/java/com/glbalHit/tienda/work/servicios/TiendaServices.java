@@ -118,13 +118,6 @@ public interface TiendaServices {
      */    
     public void clientPay(Integer identificacion);
     
-    /**
-     * Este metodo genera un reporte donde el administrador puede revisar las ventas del almacen.
-     * @param fechaIn   String Fecha de inicio de la busqueda.
-     * @param fechaFin  String Fecha de fin de la busqueda.
-     * @return reporter String Representa el informe del almacen.
-     */    
-    public String GeneratorReporter(String fechaIn,String fechaFin);
     //ventas
     
     /**
@@ -133,6 +126,10 @@ public interface TiendaServices {
      */    
     public List<Venta> getAllVentas();
     
+    /**
+     * Retorna todas las fechas en que se realizaron ventas
+     * @return  fechas
+     */
     public List<Date> getAllFechas();
        
 }

@@ -28,11 +28,10 @@ var clientCro = (function () {
                         id = client.id;
                         if (n == 0) {
                             editPaint2(client);
-
                         } else if (n == 1) {
                             eraserPaint2(client);
                         } else {
-                            alert("nada");
+                            confirm("Ocurrio un error, intente nuevamente.");
                         }
                     } else {
                         confirm("No se encontro un cliente con esa identificacion, vuelve a intentar.");
@@ -45,8 +44,7 @@ var clientCro = (function () {
 
     function editClien2() {
         var temp = $("#name").val();
-        var temp1 = $("#idti").val();
-        
+        var temp1 = $("#idti").val();        
         axios.post('/cliente/change/' + temp + "/" + id)
                 .then(function (response) {
                     console.log(response.data);

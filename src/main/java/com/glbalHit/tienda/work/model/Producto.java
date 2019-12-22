@@ -23,11 +23,9 @@ public class Producto {
     //private Date fechCompra;
     //private SimpleDateFormat objSDF = new SimpleDateFormat("dd-mm-yyyy"); 
 
-
     /**
      * Constructor vacio para el parseo de SPringBoot
-     */
-    
+     */    
     public Producto() {}
     
     /**
@@ -38,21 +36,17 @@ public class Producto {
      * @param id    Es de tipo Entero que sera el identificador del producto.  
      */
     
-    public Producto(String nombre, String descripcion,Integer precio, Integer id) throws TiendaException{
-        //Date dt_1 = objSDF.parse("20-08-1981"); 
-        
+    public Producto(String nombre, String descripcion,Integer precio, Integer id) {             
         this.descripcion=descripcion;
         this.precio=precio;
         this.nombre=nombre;    
-        this.id=id;
-    
+        this.id=id;    
     }
 
     /**
      * Establece un nombre nuevo para e producto.
      * @param nombre String que sera el nuevo nombre.
-     */
-    
+     */    
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -60,8 +54,7 @@ public class Producto {
     /**
      * Establece un nuevo id al producto
      * @param id Entero que identifica al producto
-     */
-    
+     */    
     public void setId(Integer id) {
         this.id = id;
     }
@@ -69,8 +62,7 @@ public class Producto {
     /**
      * Establece una nueva descripcion al producto.
      * @param descripcion String que representa la descripcion del producto.
-     */
-    
+     */    
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
@@ -78,8 +70,7 @@ public class Producto {
     /**
      * Establece un nuevo precio al producto.
      * @param precio    Entero que representa el precio del producto. 
-     */
-    
+     */    
     public void setPrecio(Integer precio) {
         this.precio = precio;
     }
@@ -87,8 +78,7 @@ public class Producto {
     /**
      * Retorna el nombre del nombre.
      * @return nombre String que representa el nombre del producto.
-     */
-    
+     */    
     public String getNombre() {
         return nombre;
     }
@@ -96,8 +86,7 @@ public class Producto {
     /**
      * Retorna el identificador del producto.
      * @return id Entero que identifica el producto.
-     */
-    
+     */    
     public Integer getId() {
         return id;
     }
@@ -105,8 +94,7 @@ public class Producto {
     /**
      * Retorna la descripcion del producto.
      * @return descripcion String que representa la descipsion del producto.
-     */
-    
+     */    
     public String getDescripcion() {
         return descripcion;
     }
@@ -114,17 +102,13 @@ public class Producto {
     /**
      * Retorna el precio del producto.
      * @return precio Entero que representa el precio del producto.
-     */
-    
+     */    
     public Integer getPrecio() {
         return precio;
     }
-    
-
-     
+  
     @Override
     public String toString() {
         return "Producto{" + "nombre=" + nombre + "descripcion=" + descripcion + "precio=" +precio +"id="+id +'}';
-    }        
-    
+    }            
 }

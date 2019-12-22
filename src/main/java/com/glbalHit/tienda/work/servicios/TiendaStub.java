@@ -36,9 +36,6 @@ public class TiendaStub implements TiendaServices {
     private static Tienda mi;
     private SimpleDateFormat objSDF = new SimpleDateFormat("dd-mm-yyyy");
 
-    /**
-     *
-     */
     public TiendaStub() throws TiendaException, ParseException {
         List<Date> prueba = new ArrayList<Date>();
         addProducClient(987, 4);
@@ -79,10 +76,8 @@ public class TiendaStub implements TiendaServices {
         prueba.add(f6);
         prueba.add(f7);
         prueba.add(f8);
-        prueba.add(f9);
-        System.out.println("el tamaño antes :"+fechas.size());
+        prueba.add(f9);        
         fechas.clear();
-        System.out.println("el tamaño res :"+fechas.size());
         fechas.add(f1);
         fechas.add(f2);
         fechas.add(f3);
@@ -92,23 +87,23 @@ public class TiendaStub implements TiendaServices {
         fechas.add(f7);
         fechas.add(f8);
         fechas.add(f9);
-        System.out.println("el tamaño redes :"+fechas.size());
+        System.out.println("el tamaño redes :" + fechas.size());
         for (int i = 0; i < prueba.size(); i++) {
-            
 
-     
-                Venta ve = ventas.get(i);                
-                ve.setFechaCompra(prueba.get(i));                                
+            Venta ve = ventas.get(i);
+            ve.setFechaCompra(prueba.get(i));
         }
-
     }
 
     /**
+     * Este metodo crea un producto en la tienda.
      *
-     * @param nombre
-     * @param descripcion
-     * @param precio
-     * @param id
+     * @param nombre Un objeto String que indica el nombre del producto.
+     * @param descripcion Un objeto String que indica la descripcion deel
+     * producto.
+     * @param precio Un objeto Integer que indica el precio del producto.
+     * @param id Un objeto Integer que indica el identificador del producro.
+     *
      */
     @Override
     public void CreateProduct(String nombre, String descripcion, Integer precio, Integer id) {
@@ -117,13 +112,15 @@ public class TiendaStub implements TiendaServices {
         } catch (TiendaException ex) {
             Logger.getLogger(TiendaStub.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }
 
     /**
-     *
-     * @param id
-     * @return
+     * Este metodo devuielve un producto con el identificador pasado como
+     * parametro.
+     * @param id Objeto Integer que representa el identificador del producto que
+     * sera entregado.
+     * @return producto Objeto producto con el identificador pasado como
+     * parametro.
      */
     @Override
     public Producto getProduct(Integer id) {
@@ -137,11 +134,12 @@ public class TiendaStub implements TiendaServices {
     }
 
     /**
-     *
-     * @param nombre
-     * @param descripcion
-     * @param precio
-     * @param id
+     * Este metodo cambia los parametros del producto.
+     * @param nombre String que representa el nueuvo nombre del producto.
+     * @param descripcion String que representa la nueuva descripcion del
+     * producto.
+     * @param precio Integer que representa el nuevo precio deel producto.
+     * @param id Integer que indica el identificador del producto.
      */
     @Override
     public void changeProduct(String nombre, String descripcion, Integer precio, Integer id) {
@@ -155,8 +153,8 @@ public class TiendaStub implements TiendaServices {
     }
 
     /**
-     *
-     * @param id
+     * Este metodo elimina el producto.
+     * @param id Integer Es el identificador del objeto a eliminar.
      */
     @Override
     public void EraseProduct(Integer id) {
@@ -170,8 +168,11 @@ public class TiendaStub implements TiendaServices {
     }
 
     /**
+     * Este metodo crea un nuevo cliente en el almacen.
      *
-     * @param nombre
+     * @param nombre String que representa el nombre del nueuvo cliente.
+     * @param identificacion Integer que representa el identifcador del nuevo
+     * cliente.
      */
     @Override
     public void CreateClient(String nombre, Integer identificacion) {
@@ -182,8 +183,11 @@ public class TiendaStub implements TiendaServices {
     }
 
     /**
+     * Este metodo retorna un objeto cliente con el identificador pasado como
+     * parametro.
      *
-     * @return
+     * @param id Integer Representa el identificador del cliente a buscar
+     * @return cliente Objeto que tiene como identificador el parametro pasado.
      */
     @Override
     public Cliente getClient(Integer id) {
@@ -197,11 +201,11 @@ public class TiendaStub implements TiendaServices {
     }
 
     /**
+     * Este metodo cambia el estado del cliente identificada con el
+     * identificador.
      *
-     * @param nombre
-     * @param identificacion
-     * @param HistorialCompras
-     * @param CarritoCompras
+     * @param nombre String Representa el nuevo nombre cliente.
+     * @param identificacion Integer Representa el identificador deel cliente.
      */
     @Override
     public void changeCliente(String nombre, Integer identificacion) {
@@ -214,8 +218,10 @@ public class TiendaStub implements TiendaServices {
     }
 
     /**
+     * Este metodo elimina el cliente con el id de identificacion.
      *
-     * @param identificacion
+     * @param identificacion Integer Entero que representa el identificador del
+     * cliente a eliminar.
      */
     @Override
     public void eraseClient(Integer identificacion) {
@@ -229,41 +235,111 @@ public class TiendaStub implements TiendaServices {
     }
 
     /**
+     * Este metodo retorna el tamaño de la lista de productos
      *
-     * @param fechaIn
-     * @param fechaFin
-     * @return
-     */
-    @Override
-    public String GeneratorReporter(String fechaIn, String fechaFin) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    /**
-     *
-     * @return
+     * @return Integer Retorna un entero con el valor de la lista de productos.
      */
     @Override
     public Integer getSiceProduct() {
         return productos.size();
     }
 
+    /**
+     * Retorna una lista con todos los productos del almacen.
+     *
+     * @return productos Lista de productos en el almacen.
+     */
     @Override
     public List<Producto> getAllProduct() {
         return productos;
     }
 
+    /**
+     * Retorna todos los clientes del almacen.
+     *
+     * @return clientes Lista de clientes que almacena todos los clientes del
+     * almacen.
+     */
     @Override
     public List<Cliente> getAllClient() {
         return Clientes;
     }
 
-    static {
+        /**
+     * Este metodo indica que el cliente con el id de identificacion ha pagado
+     * su carrito de compras.
+     *
+     * @param identificacion Integer El identificador del cliente que ha pagado
+     * el carrito de compras.
+     */
+    @Override
+    public void clientPay(Integer identificacion) {
+        List<Producto> pro = new ArrayList<Producto>();
+        Date de = new Date();
+        for (Cliente cl : Clientes) {
+            if (cl.getIdentificacion().equals(identificacion)) {
+                pro = cl.getCarritoCompras();
+                for (int i = 0; i < pro.size(); i++) {
+                    Producto d = pro.get(i);
+                    cl.addHistorial(d);
+                    ventas.add(new Venta(d, cl));
+                    fechas.add(new Date());
+                    //fechas.add(new Date(de.getDay(),de.getMonth(),de.getDate()));
+                }
+                cl.clearCarritoCompras();
+            }
+        }
+    }
 
+    /**
+     * Retorna todas las ventas del almacen.
+     *
+     * @return ventas Objeto de Lista de tipo de ventas que contiene todas las
+     * ventas del alamcen.
+     */
+    @Override
+    public List<Venta> getAllVentas() {
+        return ventas;
+    }
+
+    /**
+     * Retorna todas las fechas en que se realizaron ventas
+     *
+     * @return fechas
+     */
+    @Override
+    public List<Date> getAllFechas() {
+        return fechas;
+    }
+    
+    /**
+     * Este metodo adiciona un producto con un id a un cliente determinado
+     *
+     * @param idClient Integer Un entero que representa el cliente al que se le
+     * adicionara el(los) productos.
+     * @param idproduct Integer Un entero que representa el identificador del
+     * producto a adicionar.
+     */
+    @Override
+    public void addProducClient(Integer idClient, Integer idproduct) {
+        Cliente client = new Cliente();
+        Producto produc = new Producto();
+        for (Producto po : productos) {
+            if (po.getId().equals(idproduct)) {
+                produc = po;
+            }
+        }
+        for (Cliente cl : Clientes) {
+            if (cl.getIdentificacion().equals(idClient)) {
+                cl.addProudcto(produc);
+            }
+        }
+    }
+    static {
         try {
             //String nombre, String descripcion,Integer precio, Integer id
             mi = TiendaServices.CreateTienda("Mi Iingrersos Hits");
-                        Cliente c1 = new Cliente("Ramiro", 987);
+            Cliente c1 = new Cliente("Ramiro", 987);
             Cliente c2 = new Cliente("Erick", 654);
             Cliente c3 = new Cliente("Andres", 321);
             Cliente c4 = new Cliente("Lincy", 879);
@@ -292,59 +368,9 @@ public class TiendaStub implements TiendaServices {
             productos.add(p8);
             productos.add(p9);
             //Clientes
-
             //Clientes Comprando Productos
-
         } catch (TiendaException ex) {
             Logger.getLogger(TiendaStub.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-    }
-
-    @Override
-    public void addProducClient(Integer idClient, Integer idproduct) {
-        Cliente client = new Cliente();
-        Producto produc = new Producto();
-
-        for (Producto po : productos) {
-            if (po.getId().equals(idproduct)) {
-                produc = po;
-            }
-        }
-        for (Cliente cl : Clientes) {
-            if (cl.getIdentificacion().equals(idClient)) {
-                cl.addProudcto(produc);
-            }
-        }
-
-    }
-
-    @Override
-    public void clientPay(Integer identificacion) {
-        List<Producto> pro = new ArrayList<Producto>();
-        Date de = new Date();
-        for (Cliente cl : Clientes) {
-            if (cl.getIdentificacion().equals(identificacion)) {
-                pro = cl.getCarritoCompras();
-                for (int i = 0; i < pro.size(); i++) {
-                    Producto d = pro.get(i);
-                    cl.addHistorial(d);
-                    ventas.add(new Venta(d, cl));
-                    fechas.add(new Date());
-                    //fechas.add(new Date(de.getDay(),de.getMonth(),de.getDate()));
-                }
-                cl.clearCarritoCompras();
-            }
-        }
-    }
-
-    @Override
-    public List<Venta> getAllVentas() {
-        return ventas;
-    }
-
-    @Override
-    public List<Date> getAllFechas() {
-        return fechas;
     }
 }

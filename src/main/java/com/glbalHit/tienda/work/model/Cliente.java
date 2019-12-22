@@ -36,8 +36,7 @@ public class Cliente {
         this.nombre=nombre;
         this.identificacion=identificacion;
         HistorialCompras=new ArrayList<Producto>();
-        CarritoCompras=new ArrayList<Producto>();
-    
+        CarritoCompras=new ArrayList<Producto>();    
     }
 
     /**
@@ -58,7 +57,7 @@ public class Cliente {
 
     /**
      * Retorna una lista con el historial de compras de productos del cliente. 
-     * @return HistorialCompras List<Producto> Lista de productos que ha comprado el cliente.
+     * @return HistorialCompras List Lista de productos que ha comprado el cliente.
      */
     public List<Producto> getHistorialCompras() {
         return HistorialCompras;
@@ -66,9 +65,8 @@ public class Cliente {
 
     /**
      * Retorna una lista con el carrito de compras con los productos que el cliente aun no ha comprado.
-     * @return List<Producto> LIsta de productos que estan proximos a ser comprados por el cliente.
-     */
-    
+     * @return List LIsta de productos que estan proximos a ser comprados por el cliente.
+     */    
     public List<Producto> getCarritoCompras() {
         return CarritoCompras;
     }
@@ -76,8 +74,7 @@ public class Cliente {
     /**
      * Establece un nuevo nombre al cliente
      * @param nombre Un objeto String que modifica el nombre del cliente.
-     */
-    
+     */    
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -85,8 +82,7 @@ public class Cliente {
     /**
      * Establece una nueva identificacion al cliente
      * @param identificacion Un objeto entero que modifica la identifiacion del cliente.
-     */
-    
+     */    
     public void setIdentificacion(Integer identificacion) {
         this.identificacion = identificacion;
     }
@@ -102,8 +98,7 @@ public class Cliente {
     /**
      * Establece una lista de carrito de compras del cliente.
      * @param CarritoCompras Un objeto de lista de tipo Producto que modifica el carrito de compras del cliente.
-     */
-    
+     */    
     public void setCarritoCompras(List<Producto> CarritoCompras) {
         this.CarritoCompras = CarritoCompras;
     }
@@ -132,6 +127,5 @@ public class Cliente {
     @Override
     public String toString() {
         return "Cliente{" + "nombre=" + nombre + "identificacion=" + identificacion + "HistorialCompras=" +HistorialCompras.toString() +"CarritoCompras="+CarritoCompras.toString() + '}';
-    }
-    
+    }    
 }

@@ -12,22 +12,19 @@ package com.glbalHit.tienda.work.servicios;
 public class TiendaException  extends Exception {
     
     /**
-     * 
-     * @param message
-     * @param cause 
+     * Lanza una excepcion con un mensage y su causa.
+     * @param message   Mnesage al momento de decir la excepcion.
+     * @param cause     Causa por la que sucedio la excepcion.
      */
     public TiendaException (String message, Throwable cause){
         super(message,cause);      
     }
        
     /**
-     * 
-     * @param message 
-     */
-    
+     * Lanza una excepcion pero solo muestra un mensaje.
+     * @param message   String Mensaje  que se genera cuando ocurre una excepcion.
+     */    
     public TiendaException(String message){
         super(message);
     }
-    
-    
 }

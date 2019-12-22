@@ -20,21 +20,26 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(value = "/venta")
-public class TiendaControllerVenta {
-    
+public class TiendaControllerVenta {    
     
     @Autowired
     private TiendaServices td;
     
+    /**
+     * Este metodo retorna todas las ventas hechas en el almacen.
+     * @return ventas Lista de tipo ventas con todas las ventas hechas en el almacen.
+     */
     @GetMapping("/all")
     public ResponseEntity<?> getAllVenta(){        
-        return new ResponseEntity<>(td.getAllVentas(), HttpStatus.ACCEPTED);
-    
+        return new ResponseEntity<>(td.getAllVentas(), HttpStatus.ACCEPTED);    
     }
+    
+    /**
+     * Este metodo retorna tosdas las fechas en las que se hicieron ventas en el almacen.
+     * @return fechas Lista de tipo Date que retorna todas las fechas .
+     */    
     @GetMapping("/allf")
     public ResponseEntity<?> getAllFechas(){        
-        return new ResponseEntity<>(td.getAllFechas(), HttpStatus.ACCEPTED);
-    
-    }
-    
+        return new ResponseEntity<>(td.getAllFechas(), HttpStatus.ACCEPTED);    
+    }    
 }

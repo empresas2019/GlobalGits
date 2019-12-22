@@ -21,14 +21,12 @@ var client = (function () {
     }
     
     function paintFinpage(cliente){
-        alert(cliente.identificacion);
         profin=cliente.historialCompras;        
         document.getElementById("fincar").innerHTML = "";
         var total=0;
         var carroc="";
         carroc+="<tr>";
-        var i;
-        alert(profin.length);
+        var i; 
         for(i=0; i<profin.length; i++){            
             total+=profin[i].precio;            
             carroc+="<td>"+profin[i].nombre+"</th>";
@@ -47,7 +45,6 @@ var client = (function () {
                 .then(function (response) {
                     console.log(response.data);                    
                     client = response.data;                  
-                    alert(client.nombre);
                     paintFinpage(client);                    
                 })
                 .catch(error => {
@@ -66,7 +63,6 @@ var client = (function () {
     function sendName() {
         var temp = $("#name").val();
         var temp1 = $("#idti").val();
-        alert(temp);
         var temp2 = temp.split(" ");
         var temp3 = "";
         var i;
@@ -89,7 +85,6 @@ var client = (function () {
         goPay:goPay,
         finPage:finPage,
         paintFinpage:paintFinpage
-
     }
 }
 )();

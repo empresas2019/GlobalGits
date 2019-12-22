@@ -21,7 +21,6 @@ import org.springframework.web.bind.annotation.RestController;
  * @author Cefar -- Dicomatico
  */
 
-
 @RestController
 @RequestMapping(value = "/producto")
 public class TiendaControllerProduct {
@@ -31,7 +30,7 @@ public class TiendaControllerProduct {
     
     /**
      * Este metodo retorna todos los productos que esten almacenados en la herramienta
-     * @return List<Producto> Retorna una lista con todos los productos presentes en la herramienta.
+     * @return List Retorna una lista con todos los productos presentes en la herramienta.
      */
     @GetMapping("/all")
     public ResponseEntity<?> getAllProduct(){        
@@ -48,11 +47,11 @@ public class TiendaControllerProduct {
     }
     
     /**
-     * 
+     * Este metodo adiciona un producto al almacen.
      * @param nombre    Es el atributo para nombrar al nuevo producto.
-     * @param descipcion    Es el atributo para establecer la descripsion al nuevo producto.
+     * @param descripcion    Es el atributo para establecer la descripsion al nuevo producto.
      * @param precio    Es el atributo para establecer el precio al nuevo producto.
-     * @throws TiendaException 
+     * @throws TiendaException  Si ocurre un error esta execpcion saltara.
      */
     @RequestMapping(method=RequestMethod.POST, path ="/add/{nombre}/{descripcion}/{precio}/{identificacion}")
     public void addProducto(@PathVariable String nombre, @PathVariable String descripcion, @PathVariable Integer precio,@PathVariable Integer identificacion)throws TiendaException{
@@ -60,24 +59,23 @@ public class TiendaControllerProduct {
     }    
     
     /**
-     * 
+     * Este metodo cambia los atributios del producto
      * @param nombre    Es el atributo para actualizar el nombre del producto 
-     * @param descipcion    Es el atributo para actualizar el descripcion del producto
+     * @param descripcion    Es el atributo para actualizar el descripcion del producto
      * @param precio    Es el atributo para actualizar el precio del producto
      * @param id    Es el atributo para identificar el producto a modificar.
-     * @throws TiendaException 
+     * @throws TiendaException  Si ocurre un error esta execpcion saltara.
      */
     @RequestMapping(method=RequestMethod.POST, path ="/change/{nombre}/{descripcion}/{precio}/{id}")
     public void ChangeProducto(@PathVariable String nombre, @PathVariable String descripcion, @PathVariable Integer precio, @PathVariable Integer id)throws TiendaException{
         td.changeProduct(nombre, descripcion, precio, id);
-
     }
     
     /**
-     * 
-     * @param id Es el parametro para identificar el producto a eliminar
-     * @throws TiendaException 
-     */
+     * Este metodo elimina un prdocto.
+     * @param id     Es el parametro para identificar el producto a eliminar
+     * @throws TiendaException  Si ocurre un error esta execpcion saltara.
+     */ 
     @RequestMapping(method=RequestMethod.POST, path ="/eraser/{id}")
     public void EraseProducto( @PathVariable Integer id)throws TiendaException{
         td.EraseProduct(id);
