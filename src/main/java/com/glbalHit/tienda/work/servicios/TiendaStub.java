@@ -8,6 +8,8 @@ package com.glbalHit.tienda.work.servicios;
 import com.glbalHit.tienda.work.model.Cliente;
 import com.glbalHit.tienda.work.model.Producto;
 import com.glbalHit.tienda.work.model.Tienda;
+import com.glbalHit.tienda.work.model.Venta;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -24,6 +26,8 @@ public class TiendaStub implements TiendaServices {
     private static List<Cliente> Clientes = new ArrayList<Cliente>();
 
     private static List<Producto> productos = new ArrayList<Producto>();
+    
+    private static List<Venta> ventas=new ArrayList<Venta>();
 
     private Cliente cl;
     private static Tienda mi;
@@ -31,7 +35,28 @@ public class TiendaStub implements TiendaServices {
     /**
      *
      */
-    public TiendaStub() {
+    public TiendaStub() throws TiendaException {
+        
+        addProducClient(987,4);
+        addProducClient(987,10);
+        addProducClient(987,5);  //      
+        addProducClient(654,1);
+        addProducClient(654,2);
+        addProducClient(654,3);
+        addProducClient(654,4);        
+        addProducClient(321,6);    //    
+        addProducClient(879,1);
+        addProducClient(879,3);
+        addProducClient(879,5);
+        addProducClient(879,7);
+        addProducClient(879,9);
+        //Clientes Pagando
+        clientPay(987);
+        clientPay(654);
+        clientPay(879);
+        //Volviendo a comprar
+        addProducClient(879,2);
+        addProducClient(879,4);        
 
     }
 
@@ -44,7 +69,11 @@ public class TiendaStub implements TiendaServices {
      */
     @Override
     public void CreateProduct(String nombre, String descripcion, Integer precio, Integer id) {
-        productos.add(new Producto(nombre, descripcion, precio, productos.size() + 1));
+        try {
+            productos.add(new Producto(nombre, descripcion, precio, productos.size() + 1));
+        } catch (TiendaException ex) {
+            Logger.getLogger(TiendaStub.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }
 
@@ -81,7 +110,6 @@ public class TiendaStub implements TiendaServices {
             }
         }
     }
-
     /**
      *
      * @param id
@@ -106,7 +134,6 @@ public class TiendaStub implements TiendaServices {
         
         cl = new Cliente(nombre, identificacion);
         Clientes.add(cl);
-        System.out.println("Si LLEegamos");
 
     }
 
@@ -119,7 +146,6 @@ public class TiendaStub implements TiendaServices {
         Cliente ci = new Cliente();
         for (Cliente fg : Clientes) {
             if (fg.getIdentificacion().equals(id)) {
-                System.out.println("usuario confirmado identificacion e id : "+fg.getIdentificacion()+"y"+id);
                 ci = fg;
             }
         }
@@ -134,11 +160,10 @@ public class TiendaStub implements TiendaServices {
      * @param CarritoCompras
      */
     @Override
-    public void changeCliente(String nombre, Integer identificacion, List<Producto> HistorialCompras, List<Producto> CarritoCompras) {
+    public void changeCliente(String nombre, Integer identificacion) {
         for (Cliente to : Clientes) {
-            if (to.getIdentificacion() == identificacion) {
-                to.setCarritoCompras(CarritoCompras);
-                to.setHistorialCompras(HistorialCompras);
+            if (to.getIdentificacion().equals( identificacion)) {
+                to.setIdentificacion(identificacion);
                 to.setNombre(nombre);
             }
         }
@@ -153,7 +178,7 @@ public class TiendaStub implements TiendaServices {
         for (int i = 0; i < Clientes.size(); i++) {
             Cliente fr = Clientes.get(i);
             int temp = i;
-            if (fr.getIdentificacion() == identificacion) {
+            if (fr.getIdentificacion().equals(identificacion)) {
                 Clientes.remove(temp);
             }
         }
@@ -191,28 +216,45 @@ public class TiendaStub implements TiendaServices {
 
     static {
         
-        //String nombre, String descripcion,Integer precio, Integer id
-        mi = TiendaServices.CreateTienda("Mi Iingrersos Hits");
-        Producto p0 = new Producto("Comedor","Mesa de madera con 6 puestos",10000,1);
-        Producto p1 = new Producto("Televisor led 40 pulgadas","Televisor marca lg ",10500,2);
-        Producto p2 = new Producto("Microndas","Microondas marca Kalley",15000,3);
-        Producto p3 = new Producto("Moto One","Celular motorola ONE 65gb memoria interna",20000,4);
-        Producto p4 = new Producto("SetEscolar","Un kit completo para el inicio de año para el estudiante",25000,5);
-        Producto p5 = new Producto("Cafetera","Cafetera electrica",300000,6);
-        Producto p6 = new Producto("Arbol de navidad","Arbol en madera natural con 2 metros de altura",35000,7);
-        Producto p7 = new Producto("Computador Asus ","Computador liviano para poca carga. ",400000,8);
-        Producto p8 = new Producto("PlayStation1","Cosnola de video juegos retro ",50000,9);
-        Producto p9 = new Producto("PlayStation 44","Consola de videoJuegos de uiltima generacion",2650000,10);
-        productos.add(p0);
-        productos.add(p1);
-        productos.add(p2);
-        productos.add(p3);
-        productos.add(p4);
-        productos.add(p5);
-        productos.add(p6);
-        productos.add(p7);
-        productos.add(p8);
-        productos.add(p9);
+        try {
+            //String nombre, String descripcion,Integer precio, Integer id
+            mi = TiendaServices.CreateTienda("Mi Iingrersos Hits");
+            Producto p0 = new Producto("Comedor","Mesa de madera con 6 puestos",10000,1);
+            Producto p1 = new Producto("Televisor led 40 pulgadas","Televisor marca lg ",10500,2);
+            Producto p2 = new Producto("Microndas","Microondas marca Kalley",15000,3);
+            Producto p3 = new Producto("Moto One","Celular motorola ONE 65gb memoria interna",20000,4);
+            Producto p4 = new Producto("SetEscolar","Un kit completo para el inicio de año para el estudiante",25000,5);
+            Producto p5 = new Producto("Cafetera","Cafetera electrica",300000,6);
+            Producto p6 = new Producto("Arbol de navidad","Arbol en madera natural con 2 metros de altura",35000,7);
+            Producto p7 = new Producto("Computador Asus ","Computador liviano para poca carga. ",400000,8);
+            Producto p8 = new Producto("PlayStation1","Cosnola de video juegos retro ",50000,9);
+            Producto p9 = new Producto("PlayStation 44","Consola de videoJuegos de uiltima generacion",2650000,10);
+            productos.add(p0);
+            productos.add(p1);
+            productos.add(p2);
+            productos.add(p3);
+            productos.add(p4);
+            productos.add(p5);
+            productos.add(p6);
+            productos.add(p7);
+            productos.add(p8);
+            productos.add(p9);
+            //Clientes
+            Cliente c1=new Cliente("Ramiro",987);
+            Cliente c2=new Cliente("Erick",654);
+            Cliente c3=new Cliente("Andres",321);
+            Cliente c4=new Cliente("Lincy",879);
+            Clientes.add(c1);
+            Clientes.add(c2);
+            Clientes.add(c3);
+            Clientes.add(c4);
+            //Clientes Comprando Productos
+            
+            
+            
+        } catch (TiendaException ex) {
+            Logger.getLogger(TiendaStub.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         
         
@@ -222,7 +264,6 @@ public class TiendaStub implements TiendaServices {
 
     @Override
     public void addProducClient(Integer idClient, Integer idproduct) {
-        System.out.println("agregando productos");
         Cliente client=new Cliente();
         Producto produc=new Producto();
         
@@ -231,15 +272,9 @@ public class TiendaStub implements TiendaServices {
                 produc=po;                            
             }
         }              
-        System.out.println("El productoe es: "+produc.getNombre());
-        for(Cliente cl: Clientes){
-            System.out.println("entrado en clientes");
-            System.out.println("QUe compraramos "+cl.getIdentificacion());
-            System.out.println("con "+idClient);
-            
+        for(Cliente cl: Clientes){            
             if(cl.getIdentificacion().equals(idClient)){            
                 cl.addProudcto(produc);
-                System.out.println("El cliente es: "+cl.getNombre());
             }        
         }        
         
@@ -247,7 +282,6 @@ public class TiendaStub implements TiendaServices {
 
     @Override
     public void clientPay(Integer identificacion) {
-        System.out.println("imprimimos identificacion: "+identificacion);
         List<Producto>pro=new ArrayList<Producto>();
         
         for(Cliente cl: Clientes){
@@ -255,10 +289,16 @@ public class TiendaStub implements TiendaServices {
                 pro=cl.getCarritoCompras();
                 for(int i=0; i<pro.size();i++){
                     Producto d=pro.get(i);
-                    cl.addHistorial(d);                                
+                    cl.addHistorial(d);     
+                    ventas.add(new Venta(d,cl));
                 }
                 cl.clearCarritoCompras();                
             }
         }
+    }
+
+    @Override
+    public List<Venta> getAllVentas() {
+        return ventas;
     }
 }

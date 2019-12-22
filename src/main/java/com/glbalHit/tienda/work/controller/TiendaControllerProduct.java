@@ -40,6 +40,13 @@ public class TiendaControllerProduct {
     
     }
     
+    @GetMapping("/one/{idproducto}")
+    public ResponseEntity<?> getOneProduct(@PathVariable Integer idproducto){        
+        return new ResponseEntity<>(td.getProduct(idproducto), HttpStatus.ACCEPTED);
+    
+    }
+    
+    
     /**
      * 
      * @param nombre    Es el atributo para nombrar al nuevo producto.
@@ -47,9 +54,9 @@ public class TiendaControllerProduct {
      * @param precio    Es el atributo para establecer el precio al nuevo producto.
      * @throws TiendaException 
      */
-    @RequestMapping(method=RequestMethod.POST, path ="/add/{nombre}/{descripcion}/{precio}")
-    public void addProducto(@PathVariable String nombre, @PathVariable String descipcion, @PathVariable Integer precio)throws TiendaException{
-        td.CreateProduct(nombre, descipcion,precio,td.getSiceProduct()+1);    
+    @RequestMapping(method=RequestMethod.POST, path ="/add/{nombre}/{descripcion}/{precio}/{identificacion}")
+    public void addProducto(@PathVariable String nombre, @PathVariable String descripcion, @PathVariable Integer precio,@PathVariable Integer identificacion)throws TiendaException{
+        td.CreateProduct(nombre, descripcion,precio,identificacion);    
     }    
     
     /**
@@ -61,8 +68,8 @@ public class TiendaControllerProduct {
      * @throws TiendaException 
      */
     @RequestMapping(method=RequestMethod.POST, path ="/change/{nombre}/{descripcion}/{precio}/{id}")
-    public void ChangeProducto(@PathVariable String nombre, @PathVariable String descipcion, @PathVariable Integer precio, @PathVariable Integer id)throws TiendaException{
-        td.changeProduct(nombre, descipcion, precio, id);
+    public void ChangeProducto(@PathVariable String nombre, @PathVariable String descripcion, @PathVariable Integer precio, @PathVariable Integer id)throws TiendaException{
+        td.changeProduct(nombre, descripcion, precio, id);
 
     }
     

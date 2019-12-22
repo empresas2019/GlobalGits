@@ -5,7 +5,9 @@
  */
 package com.glbalHit.tienda.work.model;
 
+import com.glbalHit.tienda.work.servicios.TiendaException;
 import org.springframework.stereotype.Service;
+
 
 /**
  *
@@ -18,12 +20,15 @@ public class Producto {
     private Integer id;
     private String descripcion;
     private Integer precio;
-    
+    //private Date fechCompra;
+    //private SimpleDateFormat objSDF = new SimpleDateFormat("dd-mm-yyyy"); 
+
+
     /**
      * Constructor vacio para el parseo de SPringBoot
      */
     
-    public Producto(){}
+    public Producto() {}
     
     /**
      * Este metodo crea un nuevo producto.
@@ -33,7 +38,9 @@ public class Producto {
      * @param id    Es de tipo Entero que sera el identificador del producto.  
      */
     
-    public Producto(String nombre, String descripcion,Integer precio, Integer id){
+    public Producto(String nombre, String descripcion,Integer precio, Integer id) throws TiendaException{
+        //Date dt_1 = objSDF.parse("20-08-1981"); 
+        
         this.descripcion=descripcion;
         this.precio=precio;
         this.nombre=nombre;    
@@ -112,10 +119,12 @@ public class Producto {
     public Integer getPrecio() {
         return precio;
     }
-            
+    
+
+     
     @Override
     public String toString() {
-        return "Producto{" + "nombre=" + nombre + "descripcion=" + descripcion + "precio=" +precio +"id="+id + '}';
+        return "Producto{" + "nombre=" + nombre + "descripcion=" + descripcion + "precio=" +precio +"id="+id +'}';
     }        
     
 }

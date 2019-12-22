@@ -15,11 +15,8 @@
 
         <!-- Custom styles for this template -->
         <link href="css/heroic-features.css" rel="stylesheet">
-
     </head>
-
-    <body onload="producto.getAllProduct()">
-
+    <body>
         <!-- Navigation -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
             <div class="container">
@@ -35,74 +32,39 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                                     <a class="nav-link" href="admin.html">Admin</a>
+                            <a class="nav-link" href="admin.html">Admin</a>
                         </li>
                         <li class="nav-item">
-                   <a class="nav-link" href="index.html#">Inicio</a>
+                            <a class="nav-link" href="index.html#">Inicio</a>
                         </li>
-
                     </ul>
                 </div>
             </div>
         </nav>
-
         <!-- Page Content -->
-        <div class="container-fluid">
+        <div class="container">
 
             <!-- Jumbotron Header -->
-
-
             <header class="jumbotron my-4">
                 <h1 class="display-3">Mi Ingresos Hitss</h1>
-                <br>
+                <p class="lead"> Bienvenido administrador.</p>
 
-                <p class="lead"> Seleccione los productos a llevar.</p>      
-                <p class="lead"> Dirigase a la parte inferior del navegador.</p>   
             </header>
+            <div id="clien" class="rows">
+                <p class="lead"> Que operacion quiere realizar en los productos.</p>
+                <a onclick="ProdCrud.paintAdd()" class="btn btn-primary btn-lg">Agregar</a>
+                <a  onclick="ProdCrud.editPro()" class="btn btn-primary btn-lg">Editar</a>
+                <a onclick="ProdCrud.eraserPaint()" class="btn btn-primary btn-lg">Eliminar</a>
 
-            <section class="main row">
-                <article id="userss" class="col-xs-12 col-sm-8 col-md-9">
-                    <h3>Seleccione los productos a llevar.</h3>
-                <p id="usn" class="lead"> Bienvenido usuario : .</p>      
-                <p id="usid" class="lead"> Identificado con : .</p>      
-                </article>
-                <aside   class="col-xs-12 col-sm-4 col-md-3">
-                    <h3>Carrito Compras</h3>
-                    <table  class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">Nombre</th>
-                                <th scope="col">Cantidad</th>
-                                <th scope="col">Precio</th>
-                            </tr>
-                        </thead>
-                        <tbody id="carcom">
-                        </tbody>
-                        <thead>
-                            <tr>
-                                <th  scope="col">PrecioTotal</th>
-                                <th  scope="col"></th>
-                                <th id="total" scope="col"></th>
-                            </tr>
-                        </thead>
-                        
-                    </table>
-                    <a onclick="client.goPay()" class="btn btn-primary btn-lg">Pagar</a>
-                </aside>        
+            </div>    
 
-            </section>
-            <!-- Page Features -->
-            <div id="carts" class="row text-center">
+            <div id="prod" class="rows">
 
 
 
-            </div>
-            <!-- /.row -->
-
-
+            </div>    
         </div>
         <!-- /.container -->
-
         <!-- Footer -->
         <footer class="py-5 bg-dark">
             <div class="container">
@@ -110,15 +72,12 @@
             </div>
             <!-- /.container -->
         </footer>
-
         <!-- Bootstrap core JavaScript -->
         <script src="vendor/jquery/jquery.min.js"></script>
         <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-         <script src="./js/producto.js"></script>
-         <script src="./js/cliente.js"></script>
-  
-
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="./js/producto.js"></script>
+        <script src="./js/cliente.js"></script>
+        <script src="./js/adProduCrud.js"></script>
     </body>
-
 </html>

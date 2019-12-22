@@ -52,7 +52,7 @@ public class TiendaControllerClient {
 
     @RequestMapping(method=RequestMethod.POST, path ="/pay/{identificacion}")
     public ResponseEntity<?> clientPay(@PathVariable Integer identificacion)throws TiendaException{
-        System.out.println("que entra pagar: "+identificacion);
+        
         td.clientPay(identificacion);
         return new ResponseEntity<>(null, HttpStatus.ACCEPTED);
     }
@@ -77,25 +77,25 @@ public class TiendaControllerClient {
      * @throws TiendaException 
      */
     
-    @RequestMapping(method=RequestMethod.POST, path ="/change/{nombre}/{identificacion}/{HistorialCompras}/{CarritoCompras}")
-    public void ChangeClient(@PathVariable String nombre,@PathVariable Integer identificacion, @PathVariable List<Producto> HistorialCompras,@PathVariable List<Producto> CarritoCompras)throws TiendaException{
-        td.changeCliente(nombre, identificacion, HistorialCompras, CarritoCompras);
-
+    @RequestMapping(method=RequestMethod.POST, path ="/change/{nombre}/{identificacion}")
+    public ResponseEntity<?> ChangeClient(@PathVariable String nombre,@PathVariable Integer identificacion )throws TiendaException{
+        td.changeCliente(nombre, identificacion);
+        return new ResponseEntity<>(null, HttpStatus.ACCEPTED);
     }
     /**
      * @param id Es el parametro para identidicar el producto a borrar.
      * @throws TiendaException 
      */
     @RequestMapping(method=RequestMethod.POST, path ="/eraser/{identificacion}")
-    public void EraseClient( @PathVariable Integer id)throws TiendaException{
-        td.eraseClient(id);
-
+    public ResponseEntity<?> EraseClient( @PathVariable Integer identificacion)throws TiendaException{
+        td.eraseClient(identificacion);
+        return new ResponseEntity<>(null, HttpStatus.ACCEPTED);
     }
     
     @RequestMapping(method=RequestMethod.POST, path ="/addprod/{identificacion}/{idprod}")
-    public void addProductClient( @PathVariable Integer identificacion,@PathVariable Integer idprod)throws TiendaException{
+    public ResponseEntity<?> addProductClient( @PathVariable Integer identificacion,@PathVariable Integer idprod)throws TiendaException{
         td.addProducClient(identificacion, idprod);
-
+        return new ResponseEntity<>(null, HttpStatus.ACCEPTED);
     }    
     
 }

@@ -8,6 +8,7 @@ package com.glbalHit.tienda.work.servicios;
 import com.glbalHit.tienda.work.model.Cliente;
 import com.glbalHit.tienda.work.model.Producto;
 import com.glbalHit.tienda.work.model.Tienda;
+import com.glbalHit.tienda.work.model.Venta;
 import java.util.List;
 
 /**
@@ -34,14 +35,16 @@ public interface TiendaServices {
     public void CreateClient(String nombre, Integer identificacion);
     public Cliente getClient(Integer id);
     public List<Cliente> getAllClient();
-    public void addProducClient(Integer idClient, Integer idproduct);
-    public void changeCliente(String nombre, Integer identificacion,List<Producto> HistorialCompras,List<Producto> CarritoCompras);
+    public  void addProducClient(Integer idClient, Integer idproduct);
+    //public void changeCliente(String nombre, Integer identificacion,List<Producto> HistorialCompras,List<Producto> CarritoCompras);
+    public void changeCliente(String nombre, Integer identificacion);
     public void eraseClient(Integer identificacion);
     public void clientPay(Integer identificacion);
     
     
     public String GeneratorReporter(String fechaIn,String fechaFin);
-    
+    //ventas
+    public List<Venta> getAllVentas();
     
     
     

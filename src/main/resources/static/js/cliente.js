@@ -65,7 +65,7 @@ var client = (function () {
         axios.get('/cliente/one/'+usid)
                 .then(function (response) {
                     console.log(response.data);
-                    alert("what"+response.data);
+                    
                     client = response.data;                  
                     alert(client.nombre);
                     paintFinpage(client);
