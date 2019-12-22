@@ -57,7 +57,7 @@ public class TiendaStub implements TiendaServices {
     public Producto getProduct(Integer id) {
         Producto pro = new Producto();
         for (Producto pr : productos) {
-            if (pr.getId() == id) {
+            if (pr.getId().equals(id)) {
                 pro = pr;
             }
         }
@@ -74,7 +74,7 @@ public class TiendaStub implements TiendaServices {
     @Override
     public void changeProduct(String nombre, String descripcion, Integer precio, Integer id) {
         for (Producto pr : productos) {
-            if (pr.getId() == id) {
+            if (pr.getId().equals(id)) {
                 pr.setDescripcion(descripcion);
                 pr.setNombre(nombre);
                 pr.setPrecio(precio);
@@ -102,10 +102,11 @@ public class TiendaStub implements TiendaServices {
      * @param nombre
      */
     @Override
-    public void CreateClient(String nombre) {
-        System.out.println("Si LLEegamos");
-        cl = new Cliente(nombre, Clientes.size() + 1);
+    public void CreateClient(String nombre, Integer identificacion) {
+        
+        cl = new Cliente(nombre, identificacion);
         Clientes.add(cl);
+        System.out.println("Si LLEegamos");
 
     }
 
@@ -218,4 +219,45 @@ public class TiendaStub implements TiendaServices {
 
     }
 
+    @Override
+    public void addProducClient(Integer idClient, Integer idproduct) {
+        System.out.println("agregando productos");
+        Cliente client=new Cliente();
+        Producto produc=new Producto();
+        
+        for(Producto po: productos){           
+            if(po.getId().equals(idproduct)){
+                produc=po;                            
+            }
+        }              
+        System.out.println("El productoe es: "+produc.getNombre());
+        for(Cliente cl: Clientes){
+            System.out.println("entrado en clientes");
+            System.out.println("QUe compraramos "+cl.getIdentificacion());
+            System.out.println("con "+idClient);
+            
+            if(cl.getIdentificacion().equals(idClient)){            
+                cl.addProudcto(produc);
+                System.out.println("El cliente es: "+cl.getNombre());
+            }        
+        }        
+        
+    }
+
+    @Override
+    public void clientPay(Integer identificacion) {
+        System.out.println("imprimimos identificacion: "+identificacion);
+        List<Producto>pro=new ArrayList<Producto>();
+        
+        for(Cliente cl: Clientes){
+            if(cl.getIdentificacion().equals(identificacion)){
+                pro=cl.getCarritoCompras();
+                for(int i=0; i<pro.size();i++){
+                    Producto d=pro.get(i);
+                    cl.addHistorial(d);                                
+                }
+                cl.clearCarritoCompras();                
+            }
+        }
+    }
 }

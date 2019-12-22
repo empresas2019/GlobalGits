@@ -41,15 +41,31 @@ public class TiendaControllerClient {
         return new ResponseEntity<>(td.getAllClient(), HttpStatus.ACCEPTED);
     
     }
+
+    @GetMapping("/one/{identificacion}")
+    public ResponseEntity<?> getClient(@PathVariable Integer identificacion){        
+        td.clientPay(identificacion);
+        return new ResponseEntity<>(td.getClient(identificacion), HttpStatus.ACCEPTED);
+    
+    }
+    
+
+    @RequestMapping(method=RequestMethod.POST, path ="/pay/{identificacion}")
+    public ResponseEntity<?> clientPay(@PathVariable Integer identificacion)throws TiendaException{
+        System.out.println("que entra pagar: "+identificacion);
+        td.clientPay(identificacion);
+        return new ResponseEntity<>(null, HttpStatus.ACCEPTED);
+    }
+
     
     /**
      * @param nombre Es el atributo para adicionar un nuevo cliente a la herramienta.
      * @return ResponseEntity<?> Retorna un objeto de tipo de ResponseEntity.
      * @throws TiendaException 
      */
-    @RequestMapping(method=RequestMethod.POST, path ="/add/{nombre}")
-    public ResponseEntity<?> addClient(@PathVariable String nombre)throws TiendaException{
-        td.CreateClient(nombre);  
+    @RequestMapping(method=RequestMethod.POST, path ="/add/{nombre}/{identificacion}")
+    public ResponseEntity<?> addClient(@PathVariable String nombre, @PathVariable Integer identificacion)throws TiendaException{
+        td.CreateClient(nombre,identificacion);  
         return new ResponseEntity<>(null, HttpStatus.ACCEPTED);
     }    
     
@@ -76,6 +92,10 @@ public class TiendaControllerClient {
 
     }
     
-    
+    @RequestMapping(method=RequestMethod.POST, path ="/addprod/{identificacion}/{idprod}")
+    public void addProductClient( @PathVariable Integer identificacion,@PathVariable Integer idprod)throws TiendaException{
+        td.addProducClient(identificacion, idprod);
+
+    }    
     
 }

@@ -18,7 +18,7 @@
 
 </head>
 
-<body>
+<body onload="client.finPage()">
 
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -54,15 +54,47 @@
     <!-- Jumbotron Header -->
     <header class="jumbotron my-4">
       <h1 class="display-3">Mi Ingresos Hitss</h1>
-      <p class="lead"> Bienvenido a nueustro almacen, aqui podra encontrar diferentes articulos que podran ser de su interes. Lo invitamos a conocecrnos.</p>
-      <a onclick="client.sendName()" class="btn btn-primary btn-lg">Bienvenido</a>
-      <input type="text" id="name" class="form-control" placeholder="Ingrese su nombre para continuar">
-      <input type="number" id="idti" class="form-control" placeholder="Ingrese su id para continuar">
+      <p class="lead"> Gracias por su compra lo esperamos nuevamente.</p>
+      <p class="lead"> Aqui puede observar la lista de lo que compro.</p>
+      
     </header>
+            <section class="main row">
+                <article id="userss" class="col-xs-12 col-sm-8 col-md-9">
+                    <h3>Seleccione los productos a llevar.</h3>
+                <p id="usn" class="lead"> Bienvenido usuario : .</p>      
+                <p id="usid" class="lead"> Identificado con : .</p>      
+                </article>
+                <div class="row">
+                    <h3>Articulos Comprados</h3>
+                    <table  class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Cantidad</th>
+                                <th scope="col">Precio</th>
+                            </tr>
+                        </thead>
+                        <tbody id="fincar">
+                        </tbody>
+                        <thead>
+                            <tr>
+                                <th  scope="col">PrecioTotal</th>
+                                <th  scope="col"></th>
+                                <th id="total" scope="col"></th>
+                            </tr>
+                        </thead>
+                        
+                    </table>
+                    
+               </div>    
 
-    <!-- Page Features -->
+            </section>
+            <!-- Page Features -->
+            <div id="carts" class="row text-center">
 
 
+
+            </div>
   </div>
   <!-- /.container -->
 
@@ -77,9 +109,9 @@
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script src="./js/cliente.js"></script>
-  
+   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+         <script src="./js/producto.js"></script>
+         <script src="./js/cliente.js"></script>
 </body>
 
 </html>

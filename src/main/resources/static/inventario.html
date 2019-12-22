@@ -57,53 +57,39 @@
             <header class="jumbotron my-4">
                 <h1 class="display-3">Mi Ingresos Hitss</h1>
                 <br>
+
                 <p class="lead"> Seleccione los productos a llevar.</p>      
                 <p class="lead"> Dirigase a la parte inferior del navegador.</p>   
             </header>
 
             <section class="main row">
-                <article  class="col-xs-12 col-sm-8 col-md-9">
+                <article id="userss" class="col-xs-12 col-sm-8 col-md-9">
                     <h3>Seleccione los productos a llevar.</h3>
+                <p id="usn" class="lead"> Bienvenido usuario : .</p>      
+                <p id="usid" class="lead"> Identificado con : .</p>      
                 </article>
-                <aside class="col-xs-12 col-sm-4 col-md-3">
+                <aside   class="col-xs-12 col-sm-4 col-md-3">
                     <h3>Carrito Compras</h3>
-                    <table class="table">
+                    <table  class="table">
                         <thead>
                             <tr>
-                                <th scope="col">#</th>
                                 <th scope="col">Nombre</th>
                                 <th scope="col">Cantidad</th>
                                 <th scope="col">Precio</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Larry</td>
-                                <td>the Bird</td>
-                                <td>@twitter</td>
-                            </tr>
+                        <tbody id="carcom">
                         </tbody>
                         <thead>
                             <tr>
-                                <th scope="col">PrecioTotal</th>                               
+                                <th  scope="col">PrecioTotal</th>
+                                <th  scope="col"></th>
+                                <th id="total" scope="col"></th>
                             </tr>
                         </thead>
                         
                     </table>
-                    <a href="inventario.html" class="btn btn-primary btn-lg">Pagar</a>
+                    <a onclick="client.goPay()" class="btn btn-primary btn-lg">Pagar</a>
                 </aside>        
 
             </section>
@@ -132,6 +118,7 @@
         <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
          <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
          <script src="./js/producto.js"></script>
+         <script src="./js/cliente.js"></script>
   
 
     </body>

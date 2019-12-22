@@ -1,13 +1,60 @@
 
+var clie;
+var clieN;
+var clieId;
+
+
 var producto = (function () {
     var produc = new Array();
+    var procarrito=new Array();
 
     function carrito(idpro){
         alert(idpro);
+        var a;
+        for(a=0; a<produc.length ;a++){
+            if(produc[a].id==idpro){
+                
+                procarrito.push(produc[a]);                   
+                axios.post('/cliente/addprod/' + clieId+"/"+idpro)
+                .then(function (response) {
+                    console.log(response.data);                        
+                 
+                })
+                .catch(error => {
+                    console.log(error.response)
+                });
+                
+                
+            }
+        }
+        carritoP();
+        
+    }
+    
+    function carritoP(){
+        document.getElementById("carcom").innerHTML = "";
+        var total=0;
+        var carroc="";
+        carroc+="<tr>";
+        var i;
+        alert(procarrito.length);
+        for(i=0; i<procarrito.length; i++){
+            
+            total+=procarrito[i].precio;
+            
+            carroc+="<td>"+procarrito[i].nombre+"</th>";
+            carroc+="<td>"+1+"</th>";
+            carroc+="<td>"+procarrito[i].precio+"</th>";   
+            carroc+="</tr>";
+        }
+        document.getElementById("carcom").innerHTML = carroc; 
+        document.getElementById("total").innerHTML = total; 
+        
         
         
         
     }
+    
 
     function getAllProduct() {
         var tarjetas = "";
@@ -17,14 +64,14 @@ var producto = (function () {
                     console.log(response.data);
                     grouid = response.data;
                     produc = grouid;                   
-                    tarj();
+                    tarj(setUser);
                 })
                 .catch(error => {
                     console.log(error.response)
                 });
     }
 
-    function tarj() {
+    function tarj(callback) {
         var tarjetas = "";
         document.getElementById("carts").innerHTML = "";
         var a;
@@ -43,7 +90,25 @@ var producto = (function () {
             tarjetas += "</div></div></div>";
         }
         document.getElementById("carts").innerHTML = tarjetas; 
+        //clie=client.InPage();
+        
+        callback();
     }
+    
+    function setUser(){
+        
+        clie=client.InPage();
+        clieN=String(clie[0]);
+        clieId=clie[1];
+        var textn="Bienvenido usuario : "+clieN;
+        var textid="Identificado con :"+clieId;
+        
+        document.getElementById("usn").innerHTML=textn;
+        document.getElementById("usid").innerHTML=textid;
+        
+    }
+    
+    
     function getpro() {
         return produc;
     }
@@ -51,7 +116,8 @@ var producto = (function () {
         getAllProduct: getAllProduct,
         tarj: tarj,
         carrito:carrito,
-        getpro: getpro
+        getpro: getpro,
+        setUser:setUser
 
 
 

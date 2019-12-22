@@ -107,6 +107,20 @@ public class Cliente {
     public void setCarritoCompras(List<Producto> CarritoCompras) {
         this.CarritoCompras = CarritoCompras;
     }
+    public void addProudcto(Producto producto){
+        CarritoCompras.add(producto);    
+    }
+    
+    public void clearCarritoCompras(){
+        CarritoCompras.clear();                
+    }
+    
+    public void addHistorial(Producto producto){
+        HistorialCompras.add(producto);
+    
+    }
+    
+    
     
     @Override
     public String toString() {

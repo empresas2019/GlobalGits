@@ -31,11 +31,13 @@ public interface TiendaServices {
     
     
     //public Cliente CreateClient(String nombre, Integer identificacion);
-    public void CreateClient(String nombre);
+    public void CreateClient(String nombre, Integer identificacion);
     public Cliente getClient(Integer id);
     public List<Cliente> getAllClient();
+    public void addProducClient(Integer idClient, Integer idproduct);
     public void changeCliente(String nombre, Integer identificacion,List<Producto> HistorialCompras,List<Producto> CarritoCompras);
     public void eraseClient(Integer identificacion);
+    public void clientPay(Integer identificacion);
     
     
     public String GeneratorReporter(String fechaIn,String fechaFin);
