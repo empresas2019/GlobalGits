@@ -87,7 +87,6 @@ public class TiendaStub implements TiendaServices {
         fechas.add(f7);
         fechas.add(f8);
         fechas.add(f9);
-        System.out.println("el tamaño redes :" + fechas.size());
         for (int i = 0; i < prueba.size(); i++) {
 
             Venta ve = ventas.get(i);
@@ -107,11 +106,7 @@ public class TiendaStub implements TiendaServices {
      */
     @Override
     public void CreateProduct(String nombre, String descripcion, Integer precio, Integer id) {
-        try {
-            productos.add(new Producto(nombre, descripcion, precio, productos.size() + 1));
-        } catch (TiendaException ex) {
-            Logger.getLogger(TiendaStub.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        productos.add(new Producto(nombre, descripcion, precio, productos.size() + 1));
     }
 
     /**
@@ -336,41 +331,37 @@ public class TiendaStub implements TiendaServices {
         }
     }
     static {
-        try {
-            //String nombre, String descripcion,Integer precio, Integer id
-            mi = TiendaServices.CreateTienda("Mi Iingrersos Hits");
-            Cliente c1 = new Cliente("Ramiro", 987);
-            Cliente c2 = new Cliente("Erick", 654);
-            Cliente c3 = new Cliente("Andres", 321);
-            Cliente c4 = new Cliente("Lincy", 879);
-            Clientes.add(c1);
-            Clientes.add(c2);
-            Clientes.add(c3);
-            Clientes.add(c4);
-            Producto p0 = new Producto("Comedor", "Mesa de madera con 6 puestos", 10000, 1);
-            Producto p1 = new Producto("Televisor led 40 pulgadas", "Televisor marca lg ", 10500, 2);
-            Producto p2 = new Producto("Microndas", "Microondas marca Kalley", 15000, 3);
-            Producto p3 = new Producto("Moto One", "Celular motorola ONE 65gb memoria interna", 20000, 4);
-            Producto p4 = new Producto("SetEscolar", "Un kit completo para el inicio de año para el estudiante", 25000, 5);
-            Producto p5 = new Producto("Cafetera", "Cafetera electrica", 300000, 6);
-            Producto p6 = new Producto("Arbol de navidad", "Arbol en madera natural con 2 metros de altura", 35000, 7);
-            Producto p7 = new Producto("Computador Asus ", "Computador liviano para poca carga. ", 400000, 8);
-            Producto p8 = new Producto("PlayStation1", "Cosnola de video juegos retro ", 50000, 9);
-            Producto p9 = new Producto("PlayStation 44", "Consola de videoJuegos de uiltima generacion", 2650000, 10);
-            productos.add(p0);
-            productos.add(p1);
-            productos.add(p2);
-            productos.add(p3);
-            productos.add(p4);
-            productos.add(p5);
-            productos.add(p6);
-            productos.add(p7);
-            productos.add(p8);
-            productos.add(p9);
-            //Clientes
-            //Clientes Comprando Productos
-        } catch (TiendaException ex) {
-            Logger.getLogger(TiendaStub.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        //String nombre, String descripcion,Integer precio, Integer id
+        mi = TiendaServices.CreateTienda("Mi Iingrersos Hits");
+        Cliente c1 = new Cliente("Ramiro", 987);
+        Cliente c2 = new Cliente("Erick", 654);
+        Cliente c3 = new Cliente("Andres", 321);
+        Cliente c4 = new Cliente("Lincy", 879);
+        Clientes.add(c1);
+        Clientes.add(c2);
+        Clientes.add(c3);
+        Clientes.add(c4);
+        Producto p0 = new Producto("Comedor", "Mesa de madera con 6 puestos", 10000, 1);
+        Producto p1 = new Producto("Televisor led 40 pulgadas", "Televisor marca lg ", 10500, 2);
+        Producto p2 = new Producto("Microndas", "Microondas marca Kalley", 15000, 3);
+        Producto p3 = new Producto("Moto One", "Celular motorola ONE 65gb memoria interna", 20000, 4);
+        Producto p4 = new Producto("SetEscolar", "Un kit completo para el inicio de año para el estudiante", 25000, 5);
+        Producto p5 = new Producto("Cafetera", "Cafetera electrica", 300000, 6);
+        Producto p6 = new Producto("Arbol de navidad", "Arbol en madera natural con 2 metros de altura", 35000, 7);
+        Producto p7 = new Producto("Computador Asus ", "Computador liviano para poca carga. ", 400000, 8);
+        Producto p8 = new Producto("PlayStation1", "Cosnola de video juegos retro ", 50000, 9);
+        Producto p9 = new Producto("PlayStation 44", "Consola de videoJuegos de uiltima generacion", 2650000, 10);
+        productos.add(p0);
+        productos.add(p1);
+        productos.add(p2);
+        productos.add(p3);
+        productos.add(p4);
+        productos.add(p5);
+        productos.add(p6);
+        productos.add(p7);
+        productos.add(p8);
+        productos.add(p9);
+        //Clientes
+        //Clientes Comprando Productos
     }
 }
