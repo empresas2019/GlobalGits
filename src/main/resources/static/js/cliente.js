@@ -1,23 +1,16 @@
-
 var usname;
 var usid;
 
-
-
 var client = (function () {
     var profin=new Array();
-    function goPay() {
-        
+    function goPay() {        
         pagina = "fin.html";
         pagina += "?";
         //nomVec = temp.split(",");
         pagina += "=" + usname+ "&" + usid;
         location.href = pagina;
-
-
     }
-
-
+    
     function goToPage(nombre, iden) {
         var temp = nombre;
         pagina = "inventario.html";
@@ -25,24 +18,19 @@ var client = (function () {
         nomVec = temp.split(",");
         pagina += "=" + temp + "&" + iden;       
         location.href = pagina;
-
-
     }
     
     function paintFinpage(cliente){
         alert(cliente.identificacion);
-        profin=cliente.historialCompras;
-        
+        profin=cliente.historialCompras;        
         document.getElementById("fincar").innerHTML = "";
         var total=0;
         var carroc="";
         carroc+="<tr>";
         var i;
         alert(profin.length);
-        for(i=0; i<profin.length; i++){
-            
-            total+=profin[i].precio;
-            
+        for(i=0; i<profin.length; i++){            
+            total+=profin[i].precio;            
             carroc+="<td>"+profin[i].nombre+"</th>";
             carroc+="<td>"+1+"</th>";
             carroc+="<td>"+profin[i].precio+"</th>";   
@@ -50,33 +38,21 @@ var client = (function () {
         }
         document.getElementById("fincar").innerHTML = carroc; 
         document.getElementById("total").innerHTML = total; 
-        
-        
-        
-        
     }
     
     function finPage(){
-        var client;
-        
-        producto.setUser();
-        alert(usid);
-        
+        var client;        
+        producto.setUser();       
         axios.get('/cliente/one/'+usid)
                 .then(function (response) {
-                    console.log(response.data);
-                    
+                    console.log(response.data);                    
                     client = response.data;                  
                     alert(client.nombre);
-                    paintFinpage(client);
-                    
+                    paintFinpage(client);                    
                 })
                 .catch(error => {
                     console.log(error.response)
-                });
-        
-        
-        
+                });        
     }
 
     function InPage() {
@@ -114,16 +90,6 @@ var client = (function () {
         finPage:finPage,
         paintFinpage:paintFinpage
 
-
-
     }
-
-
-
-
 }
-
-
-
-
 )();

@@ -107,21 +107,28 @@ public class Cliente {
     public void setCarritoCompras(List<Producto> CarritoCompras) {
         this.CarritoCompras = CarritoCompras;
     }
+    /**
+     * Este metodo agerga un producto al carrito de compras
+     * @param producto El producto que el cliente ha seleccionado pero que aun no ha pagado.
+     */
     public void addProudcto(Producto producto){
         CarritoCompras.add(producto);    
     }
-    
+    /**
+     * Este metodo permite limpiar el carrito de compras cuando el cliente pago sus productos.
+     */
     public void clearCarritoCompras(){
         CarritoCompras.clear();                
     }
     
+    /**
+     * Este metodo adiciona un producto al historial del cliente.
+     * @param producto Objeto tipo producto que es  el articulo que el cliente adquirio.
+     */
     public void addHistorial(Producto producto){
-        HistorialCompras.add(producto);
-    
+        HistorialCompras.add(producto);   
     }
-    
-    
-    
+ 
     @Override
     public String toString() {
         return "Cliente{" + "nombre=" + nombre + "identificacion=" + identificacion + "HistorialCompras=" +HistorialCompras.toString() +"CarritoCompras="+CarritoCompras.toString() + '}';

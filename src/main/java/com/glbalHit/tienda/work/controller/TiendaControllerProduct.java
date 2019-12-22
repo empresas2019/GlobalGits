@@ -25,8 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(value = "/producto")
 public class TiendaControllerProduct {
-    
-    
+        
     @Autowired
     private TiendaServices td;
     
@@ -36,16 +35,17 @@ public class TiendaControllerProduct {
      */
     @GetMapping("/all")
     public ResponseEntity<?> getAllProduct(){        
-        return new ResponseEntity<>(td.getAllProduct(), HttpStatus.ACCEPTED);
-    
+        return new ResponseEntity<>(td.getAllProduct(), HttpStatus.ACCEPTED);    
     }
-    
+    /**
+     * Este metodo permite traer toda la informacion relacionada a un producto.
+     * @param idproducto    El identificador del producto a buscar
+     * @return producto El objeto que se desea consultae
+     */
     @GetMapping("/one/{idproducto}")
     public ResponseEntity<?> getOneProduct(@PathVariable Integer idproducto){        
-        return new ResponseEntity<>(td.getProduct(idproducto), HttpStatus.ACCEPTED);
-    
+        return new ResponseEntity<>(td.getProduct(idproducto), HttpStatus.ACCEPTED);    
     }
-    
     
     /**
      * 
@@ -81,11 +81,5 @@ public class TiendaControllerProduct {
     @RequestMapping(method=RequestMethod.POST, path ="/eraser/{id}")
     public void EraseProducto( @PathVariable Integer id)throws TiendaException{
         td.EraseProduct(id);
-
     }
-    
-    
-    
-    
-    
 }
