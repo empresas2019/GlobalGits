@@ -263,6 +263,14 @@ public class TiendaStub implements TiendaServices {
         try {
             //String nombre, String descripcion,Integer precio, Integer id
             mi = TiendaServices.CreateTienda("Mi Iingrersos Hits");
+                        Cliente c1 = new Cliente("Ramiro", 987);
+            Cliente c2 = new Cliente("Erick", 654);
+            Cliente c3 = new Cliente("Andres", 321);
+            Cliente c4 = new Cliente("Lincy", 879);
+            Clientes.add(c1);
+            Clientes.add(c2);
+            Clientes.add(c3);
+            Clientes.add(c4);
             Producto p0 = new Producto("Comedor", "Mesa de madera con 6 puestos", 10000, 1);
             Producto p1 = new Producto("Televisor led 40 pulgadas", "Televisor marca lg ", 10500, 2);
             Producto p2 = new Producto("Microndas", "Microondas marca Kalley", 15000, 3);
@@ -284,14 +292,7 @@ public class TiendaStub implements TiendaServices {
             productos.add(p8);
             productos.add(p9);
             //Clientes
-            Cliente c1 = new Cliente("Ramiro", 987);
-            Cliente c2 = new Cliente("Erick", 654);
-            Cliente c3 = new Cliente("Andres", 321);
-            Cliente c4 = new Cliente("Lincy", 879);
-            Clientes.add(c1);
-            Clientes.add(c2);
-            Clientes.add(c3);
-            Clientes.add(c4);
+
             //Clientes Comprando Productos
 
         } catch (TiendaException ex) {
