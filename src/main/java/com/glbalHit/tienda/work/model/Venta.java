@@ -17,6 +17,7 @@ public class Venta {
     private Producto productoVendido;
     private Cliente clienteCompro;
     private Date fechaCompra;
+    private Date d=new Date();
     private SimpleDateFormat objSDF = new SimpleDateFormat("dd-mm-yyyy");
 
 
@@ -26,6 +27,7 @@ public class Venta {
         this.productoVendido=productoVendido;
         this.clienteCompro=clienteCompro;
         fechaCompra=new Date();
+        //fechaCompra=new Date(d.getDay(),d.getMonth(),d.getDate());
     
     }
 
@@ -60,7 +62,7 @@ public class Venta {
         //return "Venta{" + "Producto=" + productoVendido + "cliente=" + clienteCompro + "fechaCompra=" +objSDF.format(fechaCompra) +'}';
         String strDateFormat  =": ss a dd-MMM-aaaa";
         SimpleDateFormat  objSDF = new SimpleDateFormat(strDateFormat);
-        System.out.println("que es: "+objSDF.format(fechaCompra));
+       
         return "Venta{" + "Producto=" + productoVendido + "cliente=" + clienteCompro + "fechaCompra=" +objSDF.format(fechaCompra)+'}';
     }        
     

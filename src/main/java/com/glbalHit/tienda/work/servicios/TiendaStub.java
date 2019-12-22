@@ -10,7 +10,9 @@ import com.glbalHit.tienda.work.model.Producto;
 import com.glbalHit.tienda.work.model.Tienda;
 import com.glbalHit.tienda.work.model.Venta;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -26,37 +28,78 @@ public class TiendaStub implements TiendaServices {
     private static List<Cliente> Clientes = new ArrayList<Cliente>();
 
     private static List<Producto> productos = new ArrayList<Producto>();
-    
-    private static List<Venta> ventas=new ArrayList<Venta>();
+
+    private static List<Venta> ventas = new ArrayList<Venta>();
+    private static List<Date> fechas = new ArrayList<Date>();
 
     private Cliente cl;
     private static Tienda mi;
+    private SimpleDateFormat objSDF = new SimpleDateFormat("dd-mm-yyyy");
 
     /**
      *
      */
-    public TiendaStub() throws TiendaException {
-        
-        addProducClient(987,4);
-        addProducClient(987,10);
-        addProducClient(987,5);  //      
-        addProducClient(654,1);
-        addProducClient(654,2);
-        addProducClient(654,3);
-        addProducClient(654,4);        
-        addProducClient(321,6);    //    
-        addProducClient(879,1);
-        addProducClient(879,3);
-        addProducClient(879,5);
-        addProducClient(879,7);
-        addProducClient(879,9);
+    public TiendaStub() throws TiendaException, ParseException {
+        List<Date> prueba = new ArrayList<Date>();
+        addProducClient(987, 4);
+        addProducClient(987, 10);
+        addProducClient(987, 5);  //      
+        addProducClient(654, 1);
+        addProducClient(654, 2);
+        addProducClient(654, 3);
+        addProducClient(654, 4);
+        addProducClient(321, 6);    //    
+        addProducClient(879, 1);
+        addProducClient(879, 3);
+        addProducClient(879, 5);
+        addProducClient(879, 7);
+        addProducClient(879, 9);
         //Clientes Pagando
         clientPay(987);
         clientPay(654);
         clientPay(879);
         //Volviendo a comprar
-        addProducClient(879,2);
-        addProducClient(879,4);        
+        addProducClient(879, 2);
+        addProducClient(879, 4);
+        //Cambiando fechas
+        Date f1 = objSDF.parse("10-12-2010");
+        Date f2 = objSDF.parse("11-01-2011");
+        Date f3 = objSDF.parse("12-02-2013");
+        Date f4 = objSDF.parse("13-03-2014");
+        Date f5 = objSDF.parse("14-04-2015");
+        Date f6 = objSDF.parse("15-05-2016");
+        Date f7 = objSDF.parse("16-06-2017");
+        Date f8 = objSDF.parse("17-07-2018");
+        Date f9 = objSDF.parse("18-08-2019");
+        prueba.add(f1);
+        prueba.add(f2);
+        prueba.add(f3);
+        prueba.add(f4);
+        prueba.add(f5);
+        prueba.add(f6);
+        prueba.add(f7);
+        prueba.add(f8);
+        prueba.add(f9);
+        System.out.println("el tamaño antes :"+fechas.size());
+        fechas.clear();
+        System.out.println("el tamaño res :"+fechas.size());
+        fechas.add(f1);
+        fechas.add(f2);
+        fechas.add(f3);
+        fechas.add(f4);
+        fechas.add(f5);
+        fechas.add(f6);
+        fechas.add(f7);
+        fechas.add(f8);
+        fechas.add(f9);
+        System.out.println("el tamaño redes :"+fechas.size());
+        for (int i = 0; i < prueba.size(); i++) {
+            
+
+     
+                Venta ve = ventas.get(i);                
+                ve.setFechaCompra(prueba.get(i));                                
+        }
 
     }
 
@@ -110,6 +153,7 @@ public class TiendaStub implements TiendaServices {
             }
         }
     }
+
     /**
      *
      * @param id
@@ -131,7 +175,7 @@ public class TiendaStub implements TiendaServices {
      */
     @Override
     public void CreateClient(String nombre, Integer identificacion) {
-        
+
         cl = new Cliente(nombre, identificacion);
         Clientes.add(cl);
 
@@ -162,7 +206,7 @@ public class TiendaStub implements TiendaServices {
     @Override
     public void changeCliente(String nombre, Integer identificacion) {
         for (Cliente to : Clientes) {
-            if (to.getIdentificacion().equals( identificacion)) {
+            if (to.getIdentificacion().equals(identificacion)) {
                 to.setIdentificacion(identificacion);
                 to.setNombre(nombre);
             }
@@ -215,20 +259,20 @@ public class TiendaStub implements TiendaServices {
     }
 
     static {
-        
+
         try {
             //String nombre, String descripcion,Integer precio, Integer id
             mi = TiendaServices.CreateTienda("Mi Iingrersos Hits");
-            Producto p0 = new Producto("Comedor","Mesa de madera con 6 puestos",10000,1);
-            Producto p1 = new Producto("Televisor led 40 pulgadas","Televisor marca lg ",10500,2);
-            Producto p2 = new Producto("Microndas","Microondas marca Kalley",15000,3);
-            Producto p3 = new Producto("Moto One","Celular motorola ONE 65gb memoria interna",20000,4);
-            Producto p4 = new Producto("SetEscolar","Un kit completo para el inicio de año para el estudiante",25000,5);
-            Producto p5 = new Producto("Cafetera","Cafetera electrica",300000,6);
-            Producto p6 = new Producto("Arbol de navidad","Arbol en madera natural con 2 metros de altura",35000,7);
-            Producto p7 = new Producto("Computador Asus ","Computador liviano para poca carga. ",400000,8);
-            Producto p8 = new Producto("PlayStation1","Cosnola de video juegos retro ",50000,9);
-            Producto p9 = new Producto("PlayStation 44","Consola de videoJuegos de uiltima generacion",2650000,10);
+            Producto p0 = new Producto("Comedor", "Mesa de madera con 6 puestos", 10000, 1);
+            Producto p1 = new Producto("Televisor led 40 pulgadas", "Televisor marca lg ", 10500, 2);
+            Producto p2 = new Producto("Microndas", "Microondas marca Kalley", 15000, 3);
+            Producto p3 = new Producto("Moto One", "Celular motorola ONE 65gb memoria interna", 20000, 4);
+            Producto p4 = new Producto("SetEscolar", "Un kit completo para el inicio de año para el estudiante", 25000, 5);
+            Producto p5 = new Producto("Cafetera", "Cafetera electrica", 300000, 6);
+            Producto p6 = new Producto("Arbol de navidad", "Arbol en madera natural con 2 metros de altura", 35000, 7);
+            Producto p7 = new Producto("Computador Asus ", "Computador liviano para poca carga. ", 400000, 8);
+            Producto p8 = new Producto("PlayStation1", "Cosnola de video juegos retro ", 50000, 9);
+            Producto p9 = new Producto("PlayStation 44", "Consola de videoJuegos de uiltima generacion", 2650000, 10);
             productos.add(p0);
             productos.add(p1);
             productos.add(p2);
@@ -240,59 +284,55 @@ public class TiendaStub implements TiendaServices {
             productos.add(p8);
             productos.add(p9);
             //Clientes
-            Cliente c1=new Cliente("Ramiro",987);
-            Cliente c2=new Cliente("Erick",654);
-            Cliente c3=new Cliente("Andres",321);
-            Cliente c4=new Cliente("Lincy",879);
+            Cliente c1 = new Cliente("Ramiro", 987);
+            Cliente c2 = new Cliente("Erick", 654);
+            Cliente c3 = new Cliente("Andres", 321);
+            Cliente c4 = new Cliente("Lincy", 879);
             Clientes.add(c1);
             Clientes.add(c2);
             Clientes.add(c3);
             Clientes.add(c4);
             //Clientes Comprando Productos
-            
-            
-            
+
         } catch (TiendaException ex) {
             Logger.getLogger(TiendaStub.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
-        
-        
 
     }
 
     @Override
     public void addProducClient(Integer idClient, Integer idproduct) {
-        Cliente client=new Cliente();
-        Producto produc=new Producto();
-        
-        for(Producto po: productos){           
-            if(po.getId().equals(idproduct)){
-                produc=po;                            
+        Cliente client = new Cliente();
+        Producto produc = new Producto();
+
+        for (Producto po : productos) {
+            if (po.getId().equals(idproduct)) {
+                produc = po;
             }
-        }              
-        for(Cliente cl: Clientes){            
-            if(cl.getIdentificacion().equals(idClient)){            
+        }
+        for (Cliente cl : Clientes) {
+            if (cl.getIdentificacion().equals(idClient)) {
                 cl.addProudcto(produc);
-            }        
-        }        
-        
+            }
+        }
+
     }
 
     @Override
     public void clientPay(Integer identificacion) {
-        List<Producto>pro=new ArrayList<Producto>();
-        
-        for(Cliente cl: Clientes){
-            if(cl.getIdentificacion().equals(identificacion)){
-                pro=cl.getCarritoCompras();
-                for(int i=0; i<pro.size();i++){
-                    Producto d=pro.get(i);
-                    cl.addHistorial(d);     
-                    ventas.add(new Venta(d,cl));
+        List<Producto> pro = new ArrayList<Producto>();
+        Date de = new Date();
+        for (Cliente cl : Clientes) {
+            if (cl.getIdentificacion().equals(identificacion)) {
+                pro = cl.getCarritoCompras();
+                for (int i = 0; i < pro.size(); i++) {
+                    Producto d = pro.get(i);
+                    cl.addHistorial(d);
+                    ventas.add(new Venta(d, cl));
+                    fechas.add(new Date());
+                    //fechas.add(new Date(de.getDay(),de.getMonth(),de.getDate()));
                 }
-                cl.clearCarritoCompras();                
+                cl.clearCarritoCompras();
             }
         }
     }
@@ -300,5 +340,10 @@ public class TiendaStub implements TiendaServices {
     @Override
     public List<Venta> getAllVentas() {
         return ventas;
+    }
+
+    @Override
+    public List<Date> getAllFechas() {
+        return fechas;
     }
 }

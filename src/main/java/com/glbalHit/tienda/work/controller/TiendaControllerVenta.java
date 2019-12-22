@@ -31,5 +31,10 @@ public class TiendaControllerVenta {
         return new ResponseEntity<>(td.getAllVentas(), HttpStatus.ACCEPTED);
     
     }
+    @GetMapping("/allf")
+    public ResponseEntity<?> getAllFechas(){        
+        return new ResponseEntity<>(td.getAllFechas(), HttpStatus.ACCEPTED);
+    
+    }
     
 }

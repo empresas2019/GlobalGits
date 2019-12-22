@@ -9,6 +9,7 @@ import com.glbalHit.tienda.work.model.Cliente;
 import com.glbalHit.tienda.work.model.Producto;
 import com.glbalHit.tienda.work.model.Tienda;
 import com.glbalHit.tienda.work.model.Venta;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -131,5 +132,7 @@ public interface TiendaServices {
      * @return ventas Objeto de Lista de tipo de ventas que contiene todas las ventas del alamcen.
      */    
     public List<Venta> getAllVentas();
+    
+    public List<Date> getAllFechas();
        
 }

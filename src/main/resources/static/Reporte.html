@@ -1,26 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-
     <head>
-
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="">
         <meta name="author" content="">
-
-        <title>Mi Ingresos Hitss</title>
-
-        <!-- Bootstrap core CSS -->
-        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-        <!-- Custom styles for this template -->
+        <title>Mi Ingresos Hitss</title>        <!-- Bootstrap core CSS -->
+        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">        <!-- Custom styles for this template -->
         <link href="css/heroic-features.css" rel="stylesheet">
-
     </head>
-
-    <body>
-
-        <!-- Navigation -->
+    <body onload="reporte.getFechas()"> 
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
             <div class="container">
                 <a class="navbar-brand" href="#">Mi Ingresos Hitss</a>
@@ -40,31 +29,50 @@
                         <li class="nav-item">
                             <a class="nav-link" href="index.html#">Inicio</a>
                         </li>
-
                     </ul>
                 </div>
             </div>
-        </nav>
-
-        <!-- Page Content -->
-        <div class="container">
-
-            <!-- Jumbotron Header -->
+        </nav>        <!-- Page Content -->
+        <div class="container">            <!-- Jumbotron Header -->
             <header class="jumbotron my-4">
                 <h1 class="display-3">Mi Ingresos Hitss</h1>
                 <p class="lead"> Bienvenido administrador.</p>
-
             </header>
             <div id="clien" class="rows">
-                <p class="lead"> Seleccione uno para realizar alguna modificacion.</p>
-                <a href="productoCrud.html" class="btn btn-primary btn-lg">Proudctos</a>
+                <p class="lead"> A continuacion podra generar un reporte de los productos que se vendieron en un rancgo de  </p>
+                <p class="lead"> fecha y al cliente al que se le vendio. .</p>
+                <p class="lead"> O si lo desea listar por clientes.</p>
+                <a onclick="" class="btn btn-primary btn-lg">Buscar por Cliente</a>
+                <a  onclick="reporte.paintBus()" class="btn btn-primary btn-lg">Buscar por Fecha</a>
+                <br>
+                <br>
+<br>
+                <br>                
+                <br>
+                <br>                
             </div>    
+            <div id="bu"  class="rows">
+                
+                
+                
+            </div>
+            
+            
             <div id="prod" class="rows">
-                <a href="ClienteCrud.html" class="btn btn-primary btn-lg">Clientes</a>
+                <table  class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Cliente</th>
+                            <th scope="col">Producto</th>                            
+                                <th scope="col">Fecha</th>                            
+                        </tr>
+                    </thead>
+                    <tbody id="carcom">
+                    </tbody>
+
+                </table>
+
             </div>    
-            <div id="repo" class="rows">
-                <a href="Reporte.html" class="btn btn-primary btn-lg">Reportes</a>
-            </div>                
         </div>        <!-- /.container -->        <!-- Footer -->
         <footer class="py-5 bg-dark">
             <div class="container">
@@ -76,6 +84,7 @@
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <script src="./js/producto.js"></script>
         <script src="./js/cliente.js"></script>
+        <script src="./js/adClienCrud.js"></script>
+                <script src="./js/reporter.js"></script>
     </body>
-
 </html>
