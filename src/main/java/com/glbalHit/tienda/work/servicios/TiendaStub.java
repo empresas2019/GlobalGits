@@ -118,7 +118,8 @@ public class TiendaStub implements TiendaServices {
     public Cliente getClient(Integer id) {
         Cliente ci = new Cliente();
         for (Cliente fg : Clientes) {
-            if (fg.getIdentificacion() == id) {
+            if (fg.getIdentificacion().equals(id)) {
+                System.out.println("usuario confirmado identificacion e id : "+fg.getIdentificacion()+"y"+id);
                 ci = fg;
             }
         }
