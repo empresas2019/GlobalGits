@@ -18,31 +18,46 @@
 | Elemento | Link |
 |:-------------------------------------:|:----------------------------------------------------------------------------------------------------:|
 | Javadoc | Generado en la ruta ./target/site/apidocs |
-| Documento de Arquitectura del Sistema | -------- | 
-| Heroku | -------- | 
+| Heroku | https://globalhits.herokuapp.com/ | 
 ---
 ### :book: Instrucciones
 
 Bienvenido a Mi Ingreso Hitss
 
-Esta herramienta le permitira ....
+Esta herramienta le permitira como usurio ingresar al inventario del almacen y adicionar al carrito de compras los diferentes productos y el precio total a pagar.
+Una vez decida pagar por ellos ver un resumen de lo que acaba de comprar y su costo total.
 
+Como administrador podra agregar clientes y productos, modificarlos y eliminarlos. Ademas de poder observar un reporte de las ventas realizadas en un periodo de tiempo.
 
+Como cliente:
 
 1. Paso
-
-    -----  
-
+    Al momento de ingresar a la aplicacion (https://globalhits.herokuapp.com/ ), ingrese su nombre   y identificacion y de click en bienvenido. 
+   
 2. Paso
 
-    -----
+   Ahora se encontrara en el inventario, escoga  cualquiera de los productos exhibidos y agregelos al carrito. Cuando este listo de click en pagar y listo esos productos son suyos.
+
 
 3. Paso
 
-    -----
-    ----
+    En esta ultima vista podra observar los productos que compro y verificar cual fue el costo.
 
 
+Como administrador:
+
+1. Paso
+
+    Al momento de ingresar a la aplicacion (https://globalhits.herokuapp.com/ ), en la parte superior derecha encontrarala palabra admin, de clck en ella y  sera enviado a la vista de administrador.
+
+
+2. Paso
+
+    Una vez alli podra gestionar su almacen de la manera que desee. Ya que puede crear productos, clientes editarlos o eliminarlos si gusta.
+
+
+
+En el siguiente item explicacion paso a paso.
 
 
 ---
@@ -51,26 +66,28 @@ Esta herramienta le permitira ....
 
 ### :book: Requisitos Funcionales
 
-- ------.
 
-![](img/1.png)
+1. Cliente
+- El cliente ingresa sus datos .
 
----
-
-- ---------.
-
-![](img/2.png)
+![](img/clIngresando.png)
 
 ---
 
-- --------.
+- El cliente ahora se encuuentra en el inventario, podra escoger los productos y añadirlos al carrito.
 
-![](img/3.png)
+![](img/clenINventario.png)
 
 ---
 
-- -------.
-![](img/8.png)
+- El cliente agrego varios productos al carrito de compras. Ahora solo falta que el cliente pague.
+
+![](img/clCarritoCom.png)
+
+---
+
+- Se observa que el cliente pago y se  observa el resumen de su compra.
+![](img/clPagar.png)
 
 ---
 - -------.
@@ -247,16 +264,9 @@ Esta herramienta le permitira ....
 ---
 
 ### :triangular_ruler: Diseño de arquitectura 
-#### - Paquetes
-![](img/DiagramaFullClases.png)
 #### - Clases
-![](img/DiagramaClases1.png)
-#### - Paquete Detalle 1
-![](img/DiagramasF1.png)
-#### - Paquete Detalle 2
-![](img/DiagramaF2.png)
-#### - Paquete Detalle 3
-![](img/DiagramaF3.png)
+![](img/DiagramaClases.png)
+
 
 ---
 ### :wrench: Tecnologías utilizadas
