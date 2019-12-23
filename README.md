@@ -89,69 +89,98 @@ En el siguiente item explicacion paso a paso.
 - Se observa que el cliente pago y se  observa el resumen de su compra.
 ![](img/clPagar.png)
 
----
-- -------.
 
-![](img/82.png)
+2. Administrador
 
----
+- El administraodr ingresa y puede ver las 3 herramientas que tiene a su disposicion.
 
-- -------.
-
-![](img/4.png)
-
----
-- ---------.
-![](img/81.png)
+![](img/IngresoComoAdmin.png)
 
 ---
 
-- --------.
-![](img/51.png)
+- El administrador agregara un cliente.
+
+![](img/IngreAdminClient.png)
+
+---
+- El administrador editara el cliente que acaba de agregar..
+![](img/editClientAdmin.png)
 
 ---
 
-- -------.
-
-![](img/92.png)
-![](img/91.png)
+- Ahora el administrador eliminara  al cliente, y podmeos observar que el cliente fue modificado.-.
+![](img/ElimClientAdmiin.png)
 
 ---
 
-- ---------.
+- EL administrador elimino al cliente.
 
-![](img/61.png)
+![](img/ELiminAdminCl2.png)
 
----
+- Se busca al cliente por su id el sistema no lo encuentra, en efecto fue elimnado.
 
-- --------.
-
-![](img/7.png)
+![](img/DontFountClientErase.png)
 
 ---
 
-- --------.
+- El administrador agregara un producto.
 
-![](img/99.png)
-
----
-
-## Pruebas con Postman
+![](img/adminAddPro.png)
 
 ---
 
-## CartModeCOntroller
+- Ahora el administrador editarra el prodcucto nuevo.
 
-- --------.
-
-![](img/p1.png)
+![](img/adminUpdateProd2.png)
+![](img/OKupdateProduc.png)
 
 ---
 
-- --------.
+- Ya que el producto fue actualizado, el administrador procedara a eliminarlo.
 
-![](img/p2.png)
+![](img/EraseProdAdmin.png)
 
+---
+
+- La aplicacion nos muesrta los datos del producto a eliminar, el administrador esta seguro y lo elimina.
+
+![](img/Eraser2ProdAdmin.png)
+
+---
+
+- El producto fue eliminado.
+
+![](img/OKEraseProdAdmin.png)
+
+---
+
+- El sistema no puede encontrar al prodcto anterior.
+
+![](img/DontFOundProdADMIN.png)
+
+---
+
+- Reportes.
+
+- Ahora el administrador realizara un reporte, para eso en  la pagina de adminnistrador, da click sobre reporte y aparecera en la pagina de reporte.
+
+- Ahora dirigase al boton de buscar por fecha y de click.
+
+![](img/genReAd.png)
+
+---
+
+- Ahora el administrador da click en diferentes fechas y da click en buscar .
+- Debe aparecerle todos los clientes que realizaron una compra en esas fechas, y el articulo que compraron.
+
+![](img/gREporteADMIN2.png)
+
+
+---
+
+- Puede observar como el administrador genero su reporte y le aparecen todos los clientes con sus respectivas compras.
+
+![](img/ReporLst.png)
 
 ---
 
@@ -171,97 +200,7 @@ En el siguiente item explicacion paso a paso.
 ![](img/p5.png)
 
 ---
-- -------.
 
-![](img/p6.png)
-
----
-
-- -------.
-
-![](img/p7.png)
-
----
-
-- --------.
-
-![](img/p8.png)
-
----
-- -------.
-
-![](img/p9.png)
-
----
-- --------.
-
-![](img/p10.png)
-
----
-- -------.
-![](img/p11.png)
-
----
-
-- --------.
-
-![](img/p12.png)
-
----
-- -----.
-
-![](img/p13.png)
-
----
-
-- -------------.
-
-![](img/p14.png)
-
----
-
-## Mi Ingreso Hitss ControllerPersistence
-
----
-- ------.
-
-![](img/p15.png)
-
----
-- -----.
-
-![](img/p16.png)
----
-
-## Mi Ingreso Hitss Controller Productos
-
----
-- -----------.
-
-![](img/p17.png)
-
----
-- -----.
-
-![](img/p18.png)
-
----
-- -----.
-
-
-## Mi Ingreso Hitss Controller Clientes
-
-- ----
-
-![](img/p19.png)
-
-- -----
-![](img/p20.png)
-
-- ----
-![](img/p21.png)
-
----
 
 ### :triangular_ruler: Diseño de arquitectura 
 #### - Clases
