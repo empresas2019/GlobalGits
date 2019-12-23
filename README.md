@@ -180,24 +180,7 @@ En el siguiente item explicacion paso a paso.
 
 - Puede observar como el administrador genero su reporte y le aparecen todos los clientes con sus respectivas compras.
 
-![](img/ReporLst.png)
-
----
-
-- --------.
-
-![](img/p3.png)
-
----
-
-- -------.
-
-![](img/p4.png)
-
----
-- ------.
-
-![](img/p5.png)
+![](img/ReporLst.png
 
 ---
 
